@@ -158,6 +158,12 @@
         background-position: top center;
     }
 
+    &.timeline__2 {
+        background-image: url(../images/backgrounds/bg-2.jpg);
+        background-size: cover;
+        background-position: top center;
+    }
+
     .grid-cols-12 {
         @include tablet {
             grid-template-columns: repeat(10, minmax(0, 1fr));
@@ -187,6 +193,20 @@
         @include mobile {
             grid-column: span 12 / span 12;
             grid-column-start: 1;
+        }
+    }
+
+    .reverse-on-mobile {
+        .col-span-6 {
+            @include mobile {
+                order: 1;
+            }
+        }
+
+        .col-span-5 {
+            @include mobile {
+                order: 2;
+            }
         }
     }
 }
