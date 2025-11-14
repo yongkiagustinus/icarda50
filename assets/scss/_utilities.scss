@@ -1,0 +1,106 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Margin Utilities
+@for $i from 0 through 20 {
+    .m-#{$i} {
+        margin: #{$i * 4}px;
+    }
+    .my-#{$i} {
+        margin-top: #{$i * 4}px;
+        margin-bottom: #{$i * 4}px;
+    }
+    .mx-#{$i} {
+        margin-left: #{$i * 4}px;
+        margin-right: #{$i * 4}px;
+    }
+    .mt-#{$i} {
+        margin-top: #{$i * 4}px;
+    }
+    .mr-#{$i} {
+        margin-right: #{$i * 4}px;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$i * 4}px;
+    }
+    .ml-#{$i} {
+        margin-left: #{$i * 4}px;
+    }
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Padding Utilities
+@for $i from 0 through 25 {
+    .p-#{$i} {
+        padding: #{$i * 4}px;
+    }
+    .py-#{$i} {
+        padding-top: #{$i * 4}px;
+        padding-bottom: #{$i * 4}px;
+    }
+    .px-#{$i} {
+        padding-left: #{$i * 4}px;
+        padding-right: #{$i * 4}px;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i * 4}px;
+    }
+    .pr-#{$i} {
+        padding-right: #{$i * 4}px;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i * 4}px;
+    }
+    .pl-#{$i} {
+        padding-left: #{$i * 4}px;
+    }
+}
+
+// Flex utilities
+.flex {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-row {
+    flex-direction: row;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.items-center {
+    align-items: center;
+}
+
+// Position Utilities
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.sticky {
+    position: sticky;
+}
+
+@for $i from 0 through 100 {
+    .top-#{$i} {
+        top: #{$i * 4}px;
+    }
+    .left-#{$i} {
+        left: #{$i * 4}px;
+    }
+    .right-#{$i} {
+        right: #{$i * 4}px;
+    }
+    .bottom-#{$i} {
+        bottom: #{$i * 4}px;
+    }
+}

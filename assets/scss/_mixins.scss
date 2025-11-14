@@ -1,0 +1,50 @@
+@use "variables" as *;
+
+// Responsive Breakpoints
+@mixin desktop {
+    @media (min-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+// Container Mixin
+@mixin container {
+    margin: 0 auto;
+
+    @include desktop {
+        max-width: $container-desktop;
+    }
+
+    @include tablet {
+        padding-left: $container-tablet-padding;
+        padding-right: $container-tablet-padding;
+    }
+
+    @include mobile {
+        padding-left: $container-mobile-padding;
+        padding-right: $container-mobile-padding;
+    }
+}
+
+// Responsive Class
+@mixin responsive($class) {
+    @each $bp, $size in $breakpoints {
+        @media (min-width: $size) {
+            .#{$bp}\:#{$class} {
+                @content;
+            }
+        }
+    }
+}

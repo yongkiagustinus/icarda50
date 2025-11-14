@@ -1,0 +1,89 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+body {
+    font-family: $font-primary;
+    color: $black;
+}
+
+.heading-1 {
+    font-weight: 700;
+    line-height: 110%;
+
+    @include desktop {
+        font-size: 80px;
+    }
+
+    @include tablet {
+        font-size: 56px;
+    }
+
+    @include mobile {
+        font-size: 30px;
+    }
+}
+
+.heading-2 {
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 130%;
+    @include desktop {
+        font-size: 32px;
+    }
+
+    @include tablet {
+        font-size: 24px;
+    }
+
+    @include mobile {
+        font-size: 18px;
+    }
+}
+
+.heading-3 {
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 130%;
+    @include desktop {
+        font-size: 32px;
+    }
+
+    @include tablet {
+        font-size: 24px;
+    }
+
+    @include mobile {
+        font-size: 24px;
+    }
+}
+
+.heading-4 {
+    font-weight: 600;
+    line-height: 130%;
+    @include desktop {
+        font-size: 24px;
+    }
+
+    @include tablet {
+        font-size: 24px;
+    }
+
+    @include mobile {
+        font-size: 18px;
+    }
+}
+
+.body-text {
+    line-height: 170%;
+    @include desktop {
+        font-size: 20px;
+    }
+
+    @include tablet {
+        font-size: 16px;
+    }
+
+    @include mobile {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,46 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.btn {
+    padding: 12px 4px 12px 20px;
+    outline: none;
+    border: none;
+    background-color: $orange;
+    border-radius: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    height: 48px;
+
+    color: $white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+
+    &:hover {
+        background-color: #af4e10;
+
+        span {
+            transform: scale(0.8);
+        }
+    }
+
+    span {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        border-radius: 40px;
+        background: $white;
+        transition: 0.3s ease-out;
+
+        .icon {
+            color: $orange;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

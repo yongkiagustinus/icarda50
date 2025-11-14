@@ -1,0 +1,16 @@
+{
+  "name": "icarda-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss assets/scss/main.css",
+    "sass:watch": "sass assets/scss/main.scss assets/scss/main.css --watch"
+  },
+  "keywords": [ ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.94.0"
+  }
+}

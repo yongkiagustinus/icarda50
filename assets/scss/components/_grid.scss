@@ -1,0 +1,119 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// === GRID SYSTEM ===
+.grid {
+    display: grid;
+}
+
+// Grid columns: grid-cols-1 ... grid-cols-12
+@for $i from 1 through 12 {
+    @include responsive("grid-cols-#{$i}") {
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+    }
+
+    .grid-cols-#{$i} {
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+    }
+
+    @include responsive("col-span-#{$i}") {
+        grid-column: span #{$i} / span #{$i};
+    }
+
+    // Column span: col-span-1 ... col-span-12
+    .col-span-#{$i} {
+        grid-column: span #{$i} / span #{$i};
+    }
+
+    @include responsive("col-start-#{$i}") {
+        grid-column-start: $i;
+    }
+
+    // Column start (1–12) — NEW
+    .col-start-#{$i} {
+        grid-column-start: $i;
+    }
+}
+
+// === FLEX SYSTEM ===
+.flex {
+    display: flex;
+}
+.inline-flex {
+    display: inline-flex;
+}
+
+// Direction
+.flex-row {
+    flex-direction: row;
+}
+.flex-col {
+    flex-direction: column;
+}
+
+// Wrap
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+// Justify
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-around {
+    justify-content: space-around;
+}
+
+// Align items
+.items-start {
+    align-items: flex-start;
+}
+.items-center {
+    align-items: center;
+}
+.items-end {
+    align-items: flex-end;
+}
+
+// Align self
+.self-start {
+    align-self: flex-start;
+}
+.self-center {
+    align-self: center;
+}
+.self-end {
+    align-self: flex-end;
+}
+
+// Gap utilities (responsive)
+.gap {
+    @include desktop {
+        gap: $gap-desktop;
+    }
+    @include tablet {
+        gap: $gap-tablet;
+    }
+    @include mobile {
+        gap: $gap-mobile;
+    }
+}
+
+// Custom gap sizes like Tailwind (gap-1 ... gap-10)
+@for $i from 1 through 10 {
+    .gap-#{$i} {
+        gap: #{$i * 4}px;
+    }
+}
