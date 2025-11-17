@@ -1,0 +1,295 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.timeline {
+    color: $black;
+    .timeline__year {
+        font-style: normal;
+        font-weight: 900;
+        line-height: 130%;
+        text-transform: lowercase;
+        @include desktop {
+            font-size: 86px;
+        }
+        @include tablet {
+            font-size: 50px;
+        }
+        @include mobile {
+            font-size: 40px;
+        }
+    }
+
+    .py-25 {
+        @include tablet {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @include mobile {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
+
+    .grid-cols-12 {
+        @include tablet {
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+        }
+        @include mobile {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 30px;
+        }
+    }
+
+    .col-span-6 {
+        @include tablet {
+            grid-column: span 4 / span 4;
+            grid-column-start: 2;
+        }
+        @include mobile {
+            grid-column: span 12 / span 12;
+            grid-column-start: 1;
+        }
+    }
+
+    .col-span-5 {
+        @include tablet {
+            grid-column: span 4 / span 4;
+            grid-column-start: 7;
+        }
+        @include mobile {
+            grid-column: span 12 / span 12;
+            grid-column-start: 1;
+        }
+    }
+
+    .reverse-on-mobile {
+        .col-span-6 {
+            @include tablet {
+                grid-column: span 4 / span 4;
+                grid-column-start: 7;
+            }
+            @include mobile {
+                order: 1;
+            }
+        }
+
+        .col-span-5 {
+            @include tablet {
+                grid-column: span 4 / span 4;
+                grid-column-start: 2;
+            }
+            @include mobile {
+                order: 2;
+            }
+        }
+    }
+
+    &.timeline__center {
+        .timeline__title,
+        .timeline__year {
+            display: block;
+            text-align: center;
+        }
+
+        .grid-cols-12 {
+            @include tablet {
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+            }
+            @include mobile {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                gap: 10px;
+                margin-top: 30px;
+                text-align: center;
+            }
+        }
+
+        .col-span-5 {
+            @include tablet {
+                grid-column: span 5 / span 5;
+                grid-column-start: 1;
+            }
+            @include mobile {
+                grid-column: span 12 / span 12;
+                grid-column-start: 1;
+            }
+        }
+
+        .col-span-6 {
+            @include tablet {
+                grid-column: span 5 / span 5;
+                grid-column-start: 6;
+            }
+            @include mobile {
+                grid-column: span 12 / span 12;
+                grid-column-start: 1;
+            }
+        }
+
+        .grid-card {
+            @include tablet {
+                grid-column: span 5 / span 5;
+                grid-column-start: unset;
+            }
+            @include mobile {
+                grid-column: span 12 / span 12;
+                grid-column-start: 1;
+            }
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-navigation-custom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 40px;
+        position: relative;
+
+        .swiper-page-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 40px;
+            border: 1px solid $orange;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 20px;
+            color: $black;
+            background: transparent;
+
+            .swiper-page-separator {
+                margin: 0 2px;
+            }
+        }
+
+        .swiper-progress-bars {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            justify-content: center;
+            max-width: 200px;
+            margin: 0 auto;
+
+            .swiper-progress-bar {
+                height: 6px;
+                width: 30px;
+                background-color: $green;
+                border-radius: 6px;
+                transition: background-color 0.3s ease;
+
+                &.swiper-progress-bar--active {
+                    background-color: $orange;
+                }
+
+                &.swiper-progress-bar--completed {
+                    background-color: $orange;
+                }
+
+                &:nth-child(2) {
+                    &.swiper-progress-bar--active {
+                        background-color: $orange;
+                    }
+                }
+            }
+        }
+
+        .swiper-navigation-buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: $orange;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                margin: 0;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease;
+
+                &::after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                    transform: scale(1.05);
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+
+            .swiper-navigation-icon {
+                display: none;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                svg {
+                    height: 24px;
+                    object-fit: contain;
+                    transform-origin: center;
+                    width: 24px;
+                    fill: none;
+                    stroke: $white;
+                    pointer-events: none;
+                }
+            }
+
+            .swiper-button-prev {
+                &::after {
+                    display: none;
+                }
+            }
+
+            .swiper-button-next {
+                &::after {
+                    display: none;
+                }
+            }
+
+            .swiper-button-disabled {
+                opacity: 0.35;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+        }
+
+        @include tablet {
+            margin-top: 30px;
+
+            .swiper-page-indicator {
+                font-size: 16px;
+            }
+        }
+
+        @include mobile {
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.timeline__card {
+    border-radius: 16px;
+    background: $white;
+    box-shadow: 0 -46px 54px 0 rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    color: $black;
+    margin-bottom: 10px;
+    position: sticky;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: 0.3s ease-out;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    &.light__shadow {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05) !important;
+    }
+
+    @include mobile {
+        position: relative;
+        top: unset;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05) !important;
+    }
+
+    @include desktop {
+        padding: 24px;
+    }
+    @include tablet {
+        padding: 16px;
+    }
+    @include mobile {
+        padding: 16px;
+    }
+
+    .timeline__card__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        align-self: stretch;
+
+        .timeline__card__year {
+            color: $orange;
+        }
+    }
+
+    .timeline__card__icon {
+        width: 60px;
+        height: 60px;
+        aspect-ratio: 1/1;
+    }
+
+    .timeline__card__link {
+        color: $black;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        align-self: stretch;
+        text-decoration: none;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 170%;
+    }
+
+    &.office__card {
+        color: $black;
+        background: $yellow;
+
+        .timeline__card__content {
+            margin-bottom: 100px;
+
+            .timeline__card__title {
+                text-transform: capitalize;
+                font-weight: 600;
+                line-height: 130%;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.way__forward {
+    &__title {
+        text-align: center;
+        color: $black;
+        margin-bottom: 70px;
+        @include tablet {
+            margin-bottom: 30px;
+        }
+        @include mobile {
+            margin-bottom: 30px;
+        }
+    }
+
+    .py-25 {
+        @include tablet {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @include mobile {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
+
+    &__content {
+        p {
+            color: $black;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 170%;
+        }
+    }
+
+    &__image {
+        img {
+            border-radius: 8px;
+
+            @include tablet {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .col-span-5 {
+        @include tablet {
+            grid-column: span 6 / span 6;
+        }
+        @include mobile {
+            grid-column: span 12 / span 12;
+        }
+    }
+    .col-span-7 {
+        @include tablet {
+            grid-column: span 6 / span 6;
+        }
+        @include mobile {
+            grid-column: span 12 / span 12;
+        }
+    }
+}

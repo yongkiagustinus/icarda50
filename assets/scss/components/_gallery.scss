@@ -1,0 +1,155 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.gallery {
+    background-color: $green;
+    &__title {
+        text-align: center;
+        color: $white;
+        margin-bottom: 70px;
+        @include tablet {
+            margin-bottom: 30px;
+        }
+        @include mobile {
+            margin-bottom: 30px;
+        }
+    }
+
+    .grid-cols-12 {
+        gap: 10px;
+
+        @include tablet {
+            gap: 8px;
+        }
+        .col-span-4 {
+            @include mobile {
+                grid-column: span 12 / span 12;
+            }
+        }
+        .col-span-8 {
+            @include mobile {
+                grid-column: span 12 / span 12;
+            }
+        }
+    }
+
+    .py-25 {
+        @include tablet {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @include mobile {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
+
+    &__card {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        &.second__card {
+            margin-bottom: 10px;
+
+            @include tablet {
+                mar-bottom: 8px;
+            }
+        }
+
+        &.first__card {
+            height: 100%;
+
+            a {
+                height: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: auto;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            display: block;
+        }
+
+        p {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            text-align: left;
+            color: $white;
+            opacity: 0;
+            transition: 0.3s ease-out;
+        }
+
+        &__btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $white;
+            background-color: $orange;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s ease-out;
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+
+            svg {
+                stroke: $white;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: 0.3s ease-out;
+            background: linear-gradient(180deg, rgba(76, 113, 81, 0.5) 0%, #4c7151 100%);
+        }
+
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
+
+            .gallery__card__btn {
+                opacity: 1;
+                z-index: 3;
+                pointer-events: auto;
+            }
+
+            p {
+                opacity: 1;
+                z-index: 2;
+            }
+        }
+    }
+}
