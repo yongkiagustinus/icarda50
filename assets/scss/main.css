@@ -5036,6 +5036,20 @@ body {
   }
 }
 
+.split-line {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.heading-1,
+.heading-2,
+.timeline__year,
+.timeline__content,
+.way__forward__content p,
+.quick__links__item {
+  overflow: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;

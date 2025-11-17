@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Research collaboration, 2023",
   ];
 
-  // Function to shuffle array (Fisher-Yates algorithm)
   function shuffleArray(array) {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -43,48 +42,37 @@ document.addEventListener("DOMContentLoaded", function () {
     return shuffled;
   }
 
-  // Get all gallery items
   const galleryItems = document.querySelectorAll("[data-gallery-item]");
 
   if (galleryItems.length > 0) {
-    // Shuffle captions
     const shuffledCaptions = shuffleArray(captions);
 
-    // Assign random images and captions to each gallery item
     galleryItems.forEach((item, index) => {
       const img = item.querySelector("[data-gallery-img]");
       const caption = item.querySelector("[data-gallery-caption]");
       const link = item.querySelector("[data-gallery-link]");
 
       if (img) {
-        // Generate random image dimensions based on card type
         let width, height;
         if (item.classList.contains("first__card")) {
-          // Large card - wider image
           width = 800;
           height = 600;
         } else {
-          // Square cards
           width = 600;
           height = 600;
         }
 
-        // Use Picsum Photos for random images
-        // Generate unique random seed for each image to ensure different images on each page load
         const randomSeed = Math.floor(Math.random() * 10000) + index * 1000;
         const imageUrl = `https://picsum.photos/seed/${randomSeed}/${width}/${height}`;
 
         img.src = imageUrl;
         img.alt = `Gallery Image ${index + 1}`;
 
-        // Set href for lightbox
         if (link) {
           link.href = imageUrl;
         }
 
-        // Handle image loading errors
         img.onerror = function () {
-          // Fallback to placeholder if Picsum fails
           const fallbackUrl = `https://via.placeholder.com/${width}x${height}?text=Gallery+${
             index + 1
           }`;
@@ -96,12 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (caption) {
-        // Assign random caption
         caption.textContent =
           shuffledCaptions[index] || captions[index % captions.length];
       }
 
-      // Make the plus button trigger the lightbox
       const plusButton = item.querySelector(".gallery__card__btn");
       if (plusButton && link) {
         plusButton.addEventListener("click", function (e) {
@@ -112,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Refresh fsLightbox after images are loaded
     if (typeof refreshFsLightbox === "function") {
       setTimeout(() => {
         refreshFsLightbox();

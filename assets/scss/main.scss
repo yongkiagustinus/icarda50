@@ -11,8 +11,23 @@
 @use "components/way-forward";
 @use "components/gallery";
 @use "components/links";
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+// Text Reveal Animation Styles
+.split-line {
+    display: inline-block;
+    overflow: hidden;
+}
+
+// Add overflow hidden to animated text elements
+.heading-1,
+.heading-2,
+.timeline__year,
+.timeline__content,
+.way__forward__content p,
+.quick__links__item {
+    overflow: hidden;
+}
 
 * {
     margin: 0;
