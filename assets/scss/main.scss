@@ -4,6 +4,14 @@
 @use "components/grid";
 @use "components/buttons";
 @use "components/typography";
+@use "components/hero";
+@use "components/timeline";
+@use "components/timeline-card";
+@use "components/kpi";
+@use "components/way-forward";
+@use "components/gallery";
+@use "components/links";
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
@@ -15,293 +23,50 @@
     @include container;
 }
 
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-
-    .logo {
-        position: absolute;
-        z-index: 2;
-        left: 50%;
-        transform: translateX(-50%);
-
-        @include desktop {
-            top: 70px;
-        }
-
-        @include tablet {
-            top: 60px;
-        }
-
-        @include mobile {
-            top: 50px;
-        }
-
-        img {
-            @include desktop {
-                height: 60px;
-            }
-
-            @include tablet {
-                height: 50px;
-            }
-
-            @include mobile {
-                height: 40px;
-            }
-        }
-    }
-
-    .hero__title {
-        color: $white;
-        position: relative;
-        text-align: center;
-        z-index: 2;
-    }
-
-    video {
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .overlay {
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba(245, 234, 46, 0) 0%, rgba(245, 234, 46, 0.32) 94.27%),
-            linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
-    }
+.timeline__1 {
+    background-image: url(../images/backgrounds/bg-1.jpg);
+    background-size: cover;
+    background-position: top center;
 }
 
-.scroll__more {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-family: sans-serif;
-    color: #ffff;
-    z-index: 2;
-
-    .text {
-        color: #fff;
-        text-align: center;
-        font-family: Inter;
-        font-size: 16px;
-        font-style: normal;
-        line-height: 150%;
-        text-transform: uppercase;
-    }
-
-    .line {
-        width: 1px;
-        height: 100px;
-        background: linear-gradient(to bottom, transparent, #fff);
-        position: relative;
-        overflow: hidden;
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            animation: scrollLine 1.5s ease-in-out infinite;
-        }
-    }
+.timeline__2 {
+    background-image: url(../images/backgrounds/bg-2.jpg);
+    background-size: cover;
+    background-position: top center;
 }
 
-.timeline {
-    color: $black;
-    .timeline__year {
-        font-style: normal;
-        font-weight: 900;
-        line-height: 130%;
-        text-transform: lowercase;
-        @include desktop {
-            font-size: 86px;
-        }
-        @include tablet {
-            font-size: 50px;
-        }
-        @include mobile {
-            font-size: 40px;
-        }
-    }
-
-    .py-25 {
-        @include tablet {
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
-        @include mobile {
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-    }
-
-    &.timeline__1 {
-        background-image: url(../images/backgrounds/bg-1.jpg);
-        background-size: cover;
-        background-position: top center;
-    }
-
-    &.timeline__2 {
-        background-image: url(../images/backgrounds/bg-2.jpg);
-        background-size: cover;
-        background-position: top center;
-    }
-
-    .grid-cols-12 {
-        @include tablet {
-            grid-template-columns: repeat(10, minmax(0, 1fr));
-        }
-        @include mobile {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 30px;
-        }
-    }
-
-    .col-span-6 {
-        @include tablet {
-            grid-column: span 4 / span 4;
-            grid-column-start: 2;
-        }
-        @include mobile {
-            grid-column: span 12 / span 12;
-            grid-column-start: 1;
-        }
-    }
-
-    .col-span-5 {
-        @include tablet {
-            grid-column: span 4 / span 4;
-            grid-column-start: 7;
-        }
-        @include mobile {
-            grid-column: span 12 / span 12;
-            grid-column-start: 1;
-        }
-    }
-
-    .reverse-on-mobile {
-        .col-span-6 {
-            @include mobile {
-                order: 1;
-            }
-        }
-
-        .col-span-5 {
-            @include mobile {
-                order: 2;
-            }
-        }
-    }
+.timeline__3 {
+    background-image: url(../images/backgrounds/bg-3.jpg);
+    background-size: cover;
+    background-position: top center;
 }
 
-.timeline__card {
-    border-radius: 16px;
-    background: $white;
-    box-shadow: 0 -46px 54px 0 rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    align-self: stretch;
-    color: $black;
-    margin-bottom: 10px;
-    position: sticky;
-
-    @include mobile {
-        position: relative;
-        top: unset;
-    }
-
-    @include desktop {
-        padding: 24px;
-    }
-    @include tablet {
-        padding: 16px;
-    }
-    @include mobile {
-        padding: 16px;
-    }
-
-    .timeline__card__content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-        align-self: stretch;
-
-        .timeline__card__year {
-            color: $orange;
-        }
-    }
-
-    .timeline__card__icon {
-        width: 60px;
-        height: 60px;
-        aspect-ratio: 1/1;
-    }
-
-    .timeline__card__link {
-        color: $black;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        align-self: stretch;
-        text-decoration: none;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 170%;
-    }
-
-    &.office__card {
-        color: $black;
-        background: $yellow;
-
-        .timeline__card__content {
-            margin-bottom: 100px;
-
-            .timeline__card__title {
-                text-transform: capitalize;
-                font-weight: 600;
-                line-height: 130%;
-            }
-        }
-    }
+.timeline__4 {
+    background-image: url(../images/backgrounds/bg-4.jpg);
+    background-size: cover;
+    background-position: top center;
 }
 
-.icon {
-    width: 20px;
-    height: 20px;
-    color: $black;
+.timeline__5 {
+    background-image: url(../images/backgrounds/bg-5.jpg);
+    background-size: cover;
+    background-position: top center;
 }
 
-@keyframes scrollLine {
-    0% {
-        top: -100%;
-        opacity: 0;
-    }
-    30% {
-        opacity: 1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
+.timeline__6 {
+    background-image: url(../images/backgrounds/bg-6.jpg);
+    background-size: cover;
+    background-position: top center;
+}
+
+.timeline__7 {
+    background-image: url(../images/backgrounds/bg-7.jpg);
+    background-size: cover;
+    background-position: top center;
+}
+
+.timeline__8 {
+    background-image: url(../images/backgrounds/bg-8.jpg);
+    background-size: cover;
+    background-position: top center;
 }

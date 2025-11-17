@@ -1,0 +1,67 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.kpi {
+    &__title {
+        text-align: center;
+        color: $white;
+        margin-bottom: 50px;
+        @include tablet {
+            margin-bottom: 30px;
+        }
+        @include mobile {
+            margin-bottom: 30px;
+        }
+    }
+    .py-25 {
+        @include tablet {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        @include mobile {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    }
+    .col-span-4 {
+        @include tablet {
+            grid-column: span 6 / span 6;
+        }
+        @include mobile {
+            grid-column: span 12 / span 12;
+        }
+    }
+    &__card {
+        display: flex;
+        padding: 24px;
+        min-height: 220px;
+        align-items: center;
+        gap: 16px;
+        background: $white;
+        border-radius: 16px;
+
+        img {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+        }
+
+        &__title {
+            color: $orange;
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 130%;
+            margin-bottom: 4px;
+            text-transform: capitalize;
+        }
+        &__content {
+            p {
+                color: $black;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 130%;
+            }
+        }
+    }
+}
