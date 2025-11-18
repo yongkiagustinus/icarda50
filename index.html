@@ -6,11 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Legacy in the Drylands 50 Years of ICARDA</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="./assets/scss/main.css" />
 </head>
 
 <body>
     <main>
+        <div class="timeline__navigation">
+            <a href="#timeline__1" class="timeline__navigation__item active">
+                <div class="timeline__navigation__item__title">
+                    <span>01</span>
+                </div>
+                <div class="timeline__navigation__item__content">
+                    <span>1970s</span>
+                </div>
+            </a>
+            <a href="#timeline__2" class="timeline__navigation__item">
+                <div class="timeline__navigation__item__title">
+                    <span>02</span>
+                </div>
+                <div class="timeline__navigation__item__content">
+                    <span>1980s</span>
+                </div>
+            </a>
+            <a href="#timeline__3" class="timeline__navigation__item">
+                <div class="timeline__navigation__item__title">
+                    <span>03</span>
+                </div>
+                <div class="timeline__navigation__item__content">
+                    <span>1990s</span>
+                </div>
+            </a>
+            <a href="#timeline__4" class="timeline__navigation__item">
+                <div class="timeline__navigation__item__title">
+                    <span>04</span>
+                </div>
+                <div class="timeline__navigation__item__content">
+                    <span>2000s</span>
+                </div>
+            </a>
+            <a href="#timeline__5" class="timeline__navigation__item">
+                <div class="timeline__navigation__item__title">
+                    <span>05</span>
+                </div>
+                <div class="timeline__navigation__item__content">
+                    <span>2010s</span>
+                </div>
+            </a>
+            <a href="#timeline__6" class="timeline__navigation__item">
+                <div class="timeline__navigation__item__title">
+                    <span>06</span>
+                </div>
+                <div class="timeline__navigation__item__content">
+                    <span>2020s</span>
+                </div>
+            </a>
+        </div>
         <section class="hero relative">
             <div class="container container-hero py-25">
                 <div class="logo">
@@ -18,20 +69,40 @@
                 </div>
                 <div class="hero__title">
                     <h1 class="heading-1">A Legacy in the Drylands 50 Years of ICARDA</h1>
-                    <button class="btn mx-auto mt-7"> <a data-fslightbox="video" href="https://youtu.be/vHUROWKtG2o"
-                            data-fslightbox="video"">Watch Full Video</a>
+                    <button class="btn mx-auto mt-7"> <a data-href="https://youtu.be/vHUROWKtG2o"
+                            data-fslightbox="video" data-type="youtube">Watch Full Video</a>
                         <span><i class=" icon" data-lucide-size="20" data-lucide="play"></i></span></button>
                 </div>
             </div>
             <div class="overlay"></div>
-            <video autoplay muted class="absolute left-0 right-0 top-0 bottom-0"
+            <video autoplay muted loop class="absolute left-0 right-0 top-0 bottom-0"
                 src="./assets/images/videos/hero.mp4"></video>
             <div class="scroll__more">
                 <span class="text">Scroll to Explore</span>
                 <div class="line"></div>
             </div>
+            <div class="social__share">
+                <div class="social__share__label">Share to</div>
+                <div class="social__share__item">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X (Twitter)">
+                        <img src="./assets/images/icons/x.svg" alt="X (Twitter)" srcset="">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
+                        <img src="./assets/images/icons/facebook.svg" alt="Facebook" srcset="">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+                        <img src="./assets/images/icons/linkedin.svg" alt="LinkedIn" srcset="">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Share via Email">
+                        <img src="./assets/images/icons/mail.svg" alt="Email" srcset="">
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Copy link">
+                        <img src="./assets/images/icons/link.svg" alt="Copy link" srcset="">
+                    </a>
+                </div>
+            </div>
         </section>
-        <section class="timeline timeline__1">
+        <section id="timeline__1" class="timeline timeline__1">
             <div class="container py-25">
                 <div class="grid grid-cols-12 gap">
                     <div class="col-span-6">
@@ -61,8 +132,8 @@
                                 <h3 class="timeline__card__year heading-3">1972</h3>
                                 <h4 class="timeline__card__title heading-4">Identifying the Gap</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1970s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-35">
                             <img class="timeline__card__icon" src="./assets/images/icons/1975.png"
@@ -71,8 +142,8 @@
                                 <h3 class="timeline__card__year heading-3">1975</h3>
                                 <h4 class="timeline__card__title heading-4">Establishing the Charter</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1970s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-40">
                             <img class="timeline__card__icon" src="./assets/images/icons/1977.png"
@@ -81,8 +152,8 @@
                                 <h3 class="timeline__card__year heading-3">1977</h3>
                                 <h4 class="timeline__card__title heading-4">Headquarters Near Aleppo</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1970s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-45">
                             <img class="timeline__card__icon" src="./assets/images/icons/1978–79.png"
@@ -91,22 +162,22 @@
                                 <h3 class="timeline__card__year heading-3">1978–79</h3>
                                 <h4 class="timeline__card__title heading-4">Farming Systems Take Center Stage</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1970s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card office__card top-55">
                             <div class="timeline__card__content">
                                 <h3 class="timeline__card__title heading-3">Country Offices Established in the 70s
                                 </h3>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1970s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="timeline timeline__2">
+        <section id="timeline__2" class="timeline timeline__2">
             <div class="container py-25">
                 <div class="grid grid-cols-12 gap reverse-on-mobile">
                     <div class="col-span-5">
@@ -118,8 +189,8 @@
                                 <h4 class="timeline__card__title heading-4">Early Digital Transitions and Preservation
                                     of Genetic Commons</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1980s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-35">
                             <img class="timeline__card__icon" src="./assets/images/icons/1984.png"
@@ -128,8 +199,8 @@
                                 <h3 class="timeline__card__year heading-3">1984</h3>
                                 <h4 class="timeline__card__title heading-4">Expanding Partnerships and Impact</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1980s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-40">
                             <img class="timeline__card__icon" src="./assets/images/icons/1977.png"
@@ -138,8 +209,8 @@
                                 <h3 class="timeline__card__year heading-3">1985</h3>
                                 <h4 class="timeline__card__title heading-4">New Crop Varieties</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1980s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-45">
                             <img class="timeline__card__icon" src="./assets/images/icons/1989.png"
@@ -148,16 +219,16 @@
                                 <h3 class="timeline__card__year heading-3">1989</h3>
                                 <h4 class="timeline__card__title heading-4">Expanding Research Horizons</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1980s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card office__card top-55">
                             <div class="timeline__card__content">
                                 <h3 class="timeline__card__title heading-3">Country Offices Established in the 80s
                                 </h3>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1980s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                     </div>
                     <div class="col-span-6 col-start-8">
@@ -175,7 +246,7 @@
                 </div>
             </div>
         </section>
-        <section class="timeline timeline__3">
+        <section id="timeline__3" class="timeline timeline__3">
             <div class="container py-25">
                 <div class="grid grid-cols-12 gap">
                     <div class="col-span-6">
@@ -200,8 +271,8 @@
                                 <h4 class="timeline__card__title heading-4">Broadening the Genetic Base and Regional
                                     Reach</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1990s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-35">
                             <img class="timeline__card__icon" src="./assets/images/icons/1995.png"
@@ -210,22 +281,22 @@
                                 <h3 class="timeline__card__year heading-3">1995</h3>
                                 <h4 class="timeline__card__title heading-4">Expanding the Network</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1990s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card office__card top-55">
                             <div class="timeline__card__content">
                                 <h3 class="timeline__card__title heading-3">Country Offices Established in the 90s
                                 </h3>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" href="#" data-popup="timeline-1990s">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="timeline timeline__4">
+        <section id="timeline__4" class="timeline timeline__4">
             <div class="container py-25">
                 <div class="grid grid-cols-12 gap reverse-on-mobile">
                     <div class="col-span-5">
@@ -236,8 +307,8 @@
                                 <h3 class="timeline__card__year heading-3">2001</h3>
                                 <h4 class="timeline__card__title heading-4">Rebuilding Afghanistan’s Agriculture</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2000s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-35">
                             <img class="timeline__card__icon" src="./assets/images/icons/2004.png"
@@ -246,8 +317,8 @@
                                 <h3 class="timeline__card__year heading-3">2004</h3>
                                 <h4 class="timeline__card__title heading-4">Redesigning Research for Greater Impact</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2000s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-40">
                             <img class="timeline__card__icon" src="./assets/images/icons/2008.png"
@@ -256,16 +327,16 @@
                                 <h3 class="timeline__card__year heading-3">2008</h3>
                                 <h4 class="timeline__card__title heading-4">A Drought, and a Test</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2000s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card office__card top-55">
                             <div class="timeline__card__content">
                                 <h3 class="timeline__card__title heading-3">Country Offices Established in the 2000s
                                 </h3>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2000s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                     </div>
                     <div class="col-span-6 col-start-8">
@@ -285,7 +356,7 @@
                 </div>
             </div>
         </section>
-        <section class="timeline timeline__5">
+        <section id="timeline__5" class="timeline timeline__5">
             <div class="container py-25">
                 <div class="grid grid-cols-12 gap">
                     <div class="col-span-6">
@@ -315,8 +386,8 @@
                                 <h3 class="timeline__card__year heading-3">2010</h3>
                                 <h4 class="timeline__card__title heading-4">Leading Innovation Across Drylands</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2010s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-35">
                             <img class="timeline__card__icon" src="./assets/images/icons/2011.png"
@@ -325,8 +396,8 @@
                                 <h3 class="timeline__card__year heading-3">2011</h3>
                                 <h4 class="timeline__card__title heading-4">From Displacement to Regional Hubs</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2010s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-40">
                             <img class="timeline__card__icon" src="./assets/images/icons/2015-16.png"
@@ -335,8 +406,8 @@
                                 <h3 class="timeline__card__year heading-3">2015-16</h3>
                                 <h4 class="timeline__card__title heading-4">A First from Svalbard</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2010s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-45">
                             <img class="timeline__card__icon" src="./assets/images/icons/2017.png"
@@ -345,8 +416,8 @@
                                 <h3 class="timeline__card__year heading-3">2017</h3>
                                 <h4 class="timeline__card__title heading-4">Planning for a Warmer Future</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2010s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                         <div class="timeline__card top-55">
                             <img class="timeline__card__icon" src="./assets/images/icons/2018.png"
@@ -356,14 +427,14 @@
                                 <h4 class="timeline__card__title heading-4">Integrating Crop‑Livestock with Conservation
                                     Agriculture</h4>
                             </div>
-                            <a class="timeline__card__link" href="#">Read More <i class="icon" data-lucide-size="20"
-                                    data-lucide="arrow-up-right"></i></a>
+                            <a class="timeline__card__link" data-popup="timeline-2010s" href="#">Read More <i
+                                    class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="timeline timeline__center timeline__6">
+        <section id="timeline__6" class="timeline timeline__center timeline__6">
             <div class="container py-25">
                 <div class="swiper">
                     <div class="swiper-wrapper">
@@ -402,67 +473,65 @@
                             <div class="grid grid-cols-12 gap items-center mt-12">
                                 <div class="col-span-4 grid-card">
                                     <div class="timeline__card light__shadow top-30">
-                                        <img class="timeline__card__icon" src="./assets/images/icons/2010.png"
+                                        <img class="timeline__card__icon" src="./assets/images/icons/2020.png"
                                             alt="Identifying the Gap">
                                         <div class="timeline__card__content">
-                                            <h3 class="timeline__card__year heading-3">2010</h3>
-                                            <h4 class="timeline__card__title heading-4">Leading Innovation Across
-                                                Drylands</h4>
+                                            <h3 class="timeline__card__year heading-3">2020</h3>
+                                            <h4 class="timeline__card__title heading-4">Research Continues, Remotely
+                                            </h4>
                                         </div>
-                                        <a class="timeline__card__link" href="#">Read More <i class="icon"
-                                                data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
+                                        <a class="timeline__card__link" data-popup="timeline-2020s" href="#">Read More
+                                            <i class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-span-4 grid-card">
                                     <div class="timeline__card light__shadow top-30">
-                                        <img class="timeline__card__icon" src="./assets/images/icons/2010.png"
+                                        <img class="timeline__card__icon" src="./assets/images/icons/2022.png"
                                             alt="Identifying the Gap">
                                         <div class="timeline__card__content">
-                                            <h3 class="timeline__card__year heading-3">2010</h3>
-                                            <h4 class="timeline__card__title heading-4">Leading Innovation Across
-                                                Drylands</h4>
+                                            <h3 class="timeline__card__year heading-3">2022</h3>
+                                            <h4 class="timeline__card__title heading-4">Infrastructure and Innovation
+                                            </h4>
                                         </div>
-                                        <a class="timeline__card__link" href="#">Read More <i class="icon"
-                                                data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
+                                        <a class="timeline__card__link" data-popup="timeline-2020s" href="#">Read More
+                                            <i class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-span-4 grid-card">
                                     <div class="timeline__card light__shadow top-30">
-                                        <img class="timeline__card__icon" src="./assets/images/icons/2010.png"
+                                        <img class="timeline__card__icon" src="./assets/images/icons/2023.png"
                                             alt="Identifying the Gap">
                                         <div class="timeline__card__content">
-                                            <h3 class="timeline__card__year heading-3">2010</h3>
-                                            <h4 class="timeline__card__title heading-4">Leading Innovation Across
-                                                Drylands</h4>
+                                            <h3 class="timeline__card__year heading-3">2023</h3>
+                                            <h4 class="timeline__card__title heading-4">A New Strategic Horizon</h4>
                                         </div>
-                                        <a class="timeline__card__link" href="#">Read More <i class="icon"
-                                                data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
+                                        <a class="timeline__card__link" data-popup="timeline-2020s" href="#">Read More
+                                            <i class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-span-6 grid-card">
                                     <div class="timeline__card light__shadow top-30">
-                                        <img class="timeline__card__icon" src="./assets/images/icons/2010.png"
+                                        <img class="timeline__card__icon" src="./assets/images/icons/2024.png"
                                             alt="Identifying the Gap">
                                         <div class="timeline__card__content">
-                                            <h3 class="timeline__card__year heading-3">2010</h3>
-                                            <h4 class="timeline__card__title heading-4">Leading Innovation Across
-                                                Drylands</h4>
+                                            <h3 class="timeline__card__year heading-3">2024</h3>
+                                            <h4 class="timeline__card__title heading-4">A Global Strategy for Dryland
+                                                Resilience</h4>
                                         </div>
-                                        <a class="timeline__card__link" href="#">Read More <i class="icon"
-                                                data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
+                                        <a class="timeline__card__link" data-popup="timeline-2020s" href="#">Read More
+                                            <i class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-span-6 grid-card">
                                     <div class="timeline__card light__shadow top-30">
-                                        <img class="timeline__card__icon" src="./assets/images/icons/2010.png"
+                                        <img class="timeline__card__icon" src="./assets/images/icons/2025.png"
                                             alt="Identifying the Gap">
                                         <div class="timeline__card__content">
-                                            <h3 class="timeline__card__year heading-3">2010</h3>
-                                            <h4 class="timeline__card__title heading-4">Leading Innovation Across
-                                                Drylands</h4>
+                                            <h3 class="timeline__card__year heading-3">2025</h3>
+                                            <h4 class="timeline__card__title heading-4">Accelerating Solutions</h4>
                                         </div>
-                                        <a class="timeline__card__link" href="#">Read More <i class="icon"
-                                                data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
+                                        <a class="timeline__card__link" data-popup="timeline-2020s" href="#">Read More
+                                            <i class="icon" data-lucide-size="20" data-lucide="arrow-up-right"></i></a>
                                     </div>
                                 </div>
 
@@ -491,7 +560,7 @@
                 </div>
             </div>
         </section>
-        <section class="kpi timeline__7">
+        <section id="timeline__7" class="kpi timeline__7">
             <div class="container py-25">
                 <h2 class="heading-2 kpi__title">Looking Ahead</h2>
                 <div class="grid grid-cols-12 gap">
@@ -670,6 +739,8 @@
                         </div>
                     </div>
                 </div>
+                <button class="btn mx-auto mt-7"> Load More
+                    <span><i class=" icon" data-lucide-size="20" data-lucide="arrow-down"></i></span></button>
             </div>
         </section>
         <section class="quick__links">
@@ -697,6 +768,785 @@
                 </div>
             </div>
         </section>
+
+        <!-- POP UP CONTENT START HERE? -->
+        <div class="popup" data-popup-id="timeline-1970s" style="display: none;">
+            <div class="popup__content">
+                <div class="popup__content__header">
+                    <h2 class="heading-2 popup__content__title">A Vision Manifested</h2>
+                    <button class="popup__content__close">
+                        <i class="icon" data-lucide-size="20" data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="popup__content__body">
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1972</span>
+                            <img class="img-full" src="./assets/images/decades/70s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Identifying the Gap</h3>
+                            <p class="popup__content__body__item__content__description">ICARDA was born out of CGIAR’s
+                                A <a href="https://www.cgiar.org/" target="_blank" rel="noopener noreferrer">CGIAR</a>
+                                technical mission concluded that the
+                                semi-arid winter rainfall zone, which
+                                covers much of the Near East and
+                                North Africa, is a critical ecological area with distinct crops and pressing
+                                agricultural problems. Despite its
+                                significance, the region was underserved by existing agricultural research centers,
+                                making the case for a new center
+                                with its own science, dedicated to drylands. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1975</span>
+                            <img class="img-full" src="./assets/images/decades/70s/2.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Establishing the Charter </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA’s <a
+                                    href="https://icarda.org/publications/12145/charter-international-center-agricultural-research-dry-areas-icarda"
+                                    target="_blank" rel="noopener noreferrer">founding
+                                    charter</a> was
+                                signed with a clear mandate to raise and stabilize food production across the drylands.
+                                Its initial focus was on key regional crops such as barley, lentil, and faba bean, while
+                                also supporting wheat,
+                                chickpea, and other crops’ research, in partnership with established sister CGIAR
+                                centers. Beyond crops, the charter
+                                called for advancing farming and livestock systems, strengthening regional and global
+                                collaboration, and training a new
+                                generation of dryland agriculture scientists.  
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1977</span>
+                            <img class="img-full" src="./assets/images/decades/70s/3.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Identifying the Gap</h3>
+                            <p class="popup__content__body__item__content__description">Possible locations in Lebanon,
+                                Syria, and Iran were explored due to their ecological diversity. The President of Syria
+                                offered land near Aleppo, where ICARDA ultimately established its headquarters, in Tel
+                                Hadya. Research began on
+                                drought-tolerant crops, rainwater management, and mixed farming systems, efforts that
+                                would later define ICARDA’s global
+                                leadership in dryland agriculture. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1978–79</span>
+                            <img class="img-full" src="./assets/images/decades/70s/4.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Farming Systems Take Center Stage
+                            </h3>
+                            <p class="popup__content__body__item__content__description">Departing from the traditional
+                                top-down model of “technology transfer,” ICARDA prioritized research on farming systems.
+                                On-farm trials, crop-livestock integration, and participatory methods became key to its
+                                approach, a departure that many
+                                others would later adopt.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 class="popup__content__body__office__title">Country Offices <br>
+                        in the 70s</h2>
+                    <div class="office__location">
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/70s/flag1.png" alt="Office">
+                                <img src="./assets/images/decades/70s/flag2.png" alt="Office">
+                                <img src="./assets/images/decades/70s/flag3.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1977</h4>
+                            <p class="office__location__card__description">Headquarters in Syria, and country offices in
+                                Jordan and Lebanon, laying the groundwork for ICARDA’s early regional
+                                operations.</p>
+                        </div>
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/70s/flag4.png" alt="Office">
+                                <img src="./assets/images/decades/70s/flag5.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1978</h4>
+                            <p class="office__location__card__description">New offices opened in Egypt and Sudan,
+                                expanding ICARDA’s reach across the Nile Basin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup" data-popup-id="timeline-1980s" style="display: none;">
+            <div class="popup__content">
+                <div class="popup__content__header">
+                    <h2 class="heading-2 popup__content__title">Science for the Drylands</h2>
+                    <button class="popup__content__close">
+                        <i class="icon" data-lucide-size="20" data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="popup__content__body">
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1983</span>
+                            <img class="img-full" src="./assets/images/decades/80s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Early Digital Transitions and
+                                Preservation of Genetic Commons </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA began laying the
+                                groundwork for research computing by recruiting biometricians, developing custom
+                                software, and
+                                expanding computer services. These investments supported crop modeling, varietal trials,
+                                and training, long before
+                                digital tools were commonplace in the region. A Genetic Resources Unit was established
+                                to conserve seed diversity for
+                                dryland crops. Over time, it became one of the most comprehensive collections of its
+                                kind, serving as a valuable
+                                resource for crop breeders and scientists worldwide.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1984</span>
+                            <img class="img-full" src="./assets/images/decades/80s/2.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Expanding Partnerships and Impact
+                            </h3>
+                            <p class="popup__content__body__item__content__description">The <a
+                                    href="https://mel.cgiar.org/reporting/download/hash/hIeJCHKa" target="_blank"
+                                    rel="noopener noreferrer">Nile Valley Project</a> achieved
+                                strong results in Egypt and Sudan, leading Ethiopia to join the partnership to boost
+                                faba bean productivity and pest resistance. In Tunisia, the <a
+                                    href="https://mel.cgiar.org/reporting/download/hash/hIeJCHKa" target="_blank"
+                                    rel="noopener noreferrer">Crop/Livestock Systems</a>
+                                projects advanced through national
+                                collaborations. ICARDA also expanded its footprint in Pakistan as a key implementing
+                                institution for multiple research
+                                initiatives. Extensive germplasm collection continued, with more than 5,000 barley
+                                entries documented, while training
+                                and capacity development accelerated, supported by a growing body of publications in
+                                Arabic.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1985</span>
+                            <img class="img-full" src="./assets/images/decades/80s/3.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">New Crop Varieties</h3>
+                            <p class="popup__content__body__item__content__description">Just a decade after its
+                                founding, ICARDA’s early breeding work began to bear fruit with the release of three
+                                barley
+                                varieties in Tunisia, two durum wheat varieties in Algeria, a lentil variety in
+                                Ethiopia, and a chickpea variety in
+                                Cyprus. These initial releases demonstrated that a center established in the drylands
+                                could have a significant impact
+                                across its unique yet diverse ecosystems.  
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1989</span>
+                            <img class="img-full" src="./assets/images/decades/80s/4.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Expanding Research Horizons 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">The <a
+                                    href="https://repo.mel.cgiar.org/items/2cc09fb7-94a3-456d-94e8-fe01b5a958bb"
+                                    target="_blank" rel="noopener noreferrer">Mashreq Project</a> was launched
+                                in Jordan, Iraq, Syria, and Lebanon to tackle rangeland degradation, forage shortages,
+                                and low livestock productivity by integrating crops and livestock through
+                                multidisciplinary research. Experimentation
+                                moved out of research stations and into farmers’ fields in Syria, Morocco, Tunisia, and
+                                Sudan, utilizing participatory
+                                approaches to adapt technologies for barley, lentils, wheat, and faba beans in
+                                real-world, low-input systems. That same
+                                year, ICARDA’s controlled environment facility became fully operational at its main
+                                station in Tel Hadya, providing
+                                advanced infrastructure for plant research and disease screening.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 class="popup__content__body__office__title">Country Offices <br>
+                        in the 80s</h2>
+                    <div class="office__location">
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/80s/flag1.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1980</h4>
+                            <p class="office__location__card__description">Country office established in Tunisia,
+                                strengthening ICARDA’s presence in North Africa.</p>
+                        </div>
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/80s/flag2.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1985</h4>
+                            <p class="office__location__card__description">Regional office opened in Morocco, further
+                                anchoring research and partnerships in the Maghreb.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup" data-popup-id="timeline-1990s" style="display: none;">
+            <div class="popup__content">
+                <div class="popup__content__header">
+                    <h2 class="heading-2 popup__content__title">Expanding the Horizon</h2>
+                    <button class="popup__content__close">
+                        <i class="icon" data-lucide-size="20" data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="popup__content__body">
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1990</span>
+                            <img class="img-full" src="./assets/images/decades/90s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Broadening the Genetic Base and
+                                Regional Reach</h3>
+                            <p class="popup__content__body__item__content__description">ICARDA’s plant genetic resources
+                                grew to over 91,000 accessions. Major missions collected stress-tolerant barley in
+                                Tibet and pasture legumes across Morocco. Over 78,000 accessions were transferred to
+                                upgraded storage, with 6,132 of
+                                them preserved long-term at –22°C. ICARDA initiated systematic duplication and global
+                                distribution, launching
+                                ecogeographical databases that cover more than 50,000 accessions of wild wheat and
+                                pasture legumes. Regionally, ICARDA
+                                expanded its reach with the launch of the Highland and Arabian Peninsula Regional
+                                Programs, strengthening collaboration
+                                across drylands from North Africa to Central Asia.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">1995</span>
+                            <img class="img-full" src="./assets/images/decades/90s/2.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Expanding the Network 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA hosted the first regional
+                                forum of national research systems in West Asia and North Africa, strengthening ties
+                                between national partners and CGIAR. Yemen and Eritrea joined the Nile Valley Regional
+                                Program, which was subsequently
+                                renamed the Nile Valley and Red Sea Regional Program. New agreements were signed with
+                                agricultural academies in Central
+                                Asia to collaborate on research and the conservation of genetic resources. That year
+                                also saw ICARDA’s designation as
+                                the CGIAR lead center for soil water-use efficiency, on-farm water husbandry, and the
+                                use of shrubs for animal forage.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 class="popup__content__body__office__title">Country Offices <br>
+                        in the 90s</h2>
+                    <div class="office__location">
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/90s/flag1.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1990</h4>
+                            <p class="office__location__card__description">ICARDA launched a country office in Türkiye,
+                                reinforcing its growing program in the highlands and Central Asia. </p>
+                        </div>
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/90s/flag2.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1995</h4>
+                            <p class="office__location__card__description">A new regional office was established in the
+                                United Arab Emirates, with a focus on desert agriculture and water use. </p>
+                        </div>
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/90s/flag3.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">1998</h4>
+                            <p class="office__location__card__description">A regional coordination unit for Central Asia
+                                and the Caucasus (CAC) was set up in Uzbekistan, marking ICARDA’s
+                                expansion into post-Soviet drylands. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup" data-popup-id="timeline-2000s" style="display: none;">
+            <div class="popup__content">
+                <div class="popup__content__header">
+                    <h2 class="heading-2 popup__content__title">Adapting to a Changing World</h2>
+                    <button class="popup__content__close">
+                        <i class="icon" data-lucide-size="20" data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="popup__content__body">
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2001</span>
+                            <img class="img-full" src="./assets/images/decades/2000s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Rebuilding Afghanistan’s Agriculture 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">After years of war, ICARDA led a
+                                recovery effort in Afghanistan through the <a
+                                    href="https://assets.publishing.service.gov.uk/media/57a08c19e5274a31e0000fc2/RALFFutureHarvestConsortiumtoRebuildAgricultureinAfghanistan.pdf"
+                                    target="_blank" rel="noopener noreferrer"></a>Future Harvest Consortium</a> along
+                                with sister
+                                CGIAR centers. Tens of thousands of farming households received seed, while research
+                                stations and training programs were
+                                revived. It was the organization’s first large-scale post-conflict initiative.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2004</span>
+                            <img class="img-full" src="./assets/images/decades/2000s/2.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Redesigning Research for Greater
+                                Impact 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA has redesigned its
+                                research portfolio, consolidating 19 projects into six Mega Projects that focus on human
+                                welfare, agricultural productivity, economic growth, and environmental protection in dry
+                                areas. The new structure,
+                                aligned with CGIAR priorities and the Millennium Development Goals (MDGs), laid the
+                                foundation for a more integrated and
+                                impact-driven research agenda, which took effect in January 2005.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2008</span>
+                            <img class="img-full" src="./assets/images/decades/2000s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">A Drought, and a Test 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">The launch of ICARDA’s 2007–2016
+                                Strategic Plan coincided with the region’s worst drought in nearly four decades – only
+                                210 mm of rainfall in Aleppo, compared to the average of 340 mm, and crop yields across
+                                West Asia and North Africa were
+                                slashed by half. Yet ICARDA-developed cereals and legumes, bred for resilience,
+                                performed strongly. The crisis,
+                                exacerbated by the global food price shock, highlighted the vulnerability of dryland
+                                countries and reinforced ICARDA’s
+                                mission to advance climate adaptation, food security, and rural resilience. Governments
+                                and international bodies have
+                                turned to ICARDA for solutions, validating its role as a trusted partner in crisis
+                                management.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 class="popup__content__body__office__title">Country Offices <br>
+                        in the 2000s</h2>
+                    <div class="office__location">
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/2000s/flag1.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">2002</h4>
+                            <p class="office__location__card__description">CARDA opened an office in Afghanistan,
+                                continuing to support post-conflict agricultural recovery through seed systems
+                                and capacity building on a larger scale. </p>
+                        </div>
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/2000s/flag2.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">2004</h4>
+                            <p class="office__location__card__description">Country office launched in Pakistan, enabling
+                                greater collaboration in wheat, legumes, and rangeland systems. </p>
+                        </div>
+                        <div class="office__location__card">
+                            <div class="office__location__card__images">
+                                <img src="./assets/images/decades/2000s/flag3.png" alt="Office">
+
+                            </div>
+                            <h4 class="office__location__card__title">2009</h4>
+                            <p class="office__location__card__description">New country offices were opened in India and
+                                Ethiopia, deepening ICARDA’s involvement in food legume research and
+                                livestock systems in South Asia and the Horn of Africa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup" data-popup-id="timeline-2010s" style="display: none;">
+            <div class="popup__content">
+                <div class="popup__content__header">
+                    <h2 class="heading-2 popup__content__title">Resilience Through Decentralization</h2>
+                    <button class="popup__content__close">
+                        <i class="icon" data-lucide-size="20" data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="popup__content__body">
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2010</span>
+                            <img class="img-full" src="./assets/images/decades/2010s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Leading Innovation Across Drylands 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA was designated Lead
+                                Center for the <a href="https://mel.cgiar.org/reporting/download/hash/L3ZMQ9HH"
+                                    target="_blank" rel="noopener noreferrer">CGIAR Research Program on Dryland
+                                    Systems</a>, while also
+                                contributing to
+                                programs
+                                on wheat, legumes, climate, livestock, water, and policy. ICARDA also increasingly
+                                leveraged biotechnology, geographic
+                                information systems (GIS), simulation modeling, and market analysis to accelerate
+                                adoption and impact, launching new
+                                cross-disciplinary research and development (R&D) initiatives. ICARDA also hosted visits
+                                from policymakers across the
+                                region, including the President of India, leading to new agreements to scale innovations
+                                across South Asia and beyond.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2011</span>
+                            <img class="img-full" src="./assets/images/decades/2010s/2.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">From Displacement to Regional Hubs 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">The conflict in Syria compelled
+                                ICARDA to relocate a significant portion of its research activities. Instead of
+                                consolidating elsewhere, it decentralized, establishing research hubs in Lebanon,
+                                Morocco, Ethiopia, Egypt, Jordan, and
+                                Türkiye. CGIAR had already anticipated the need for multiple research stations across
+                                different ecologies in the
+                                drylands, all under ICARDA, making this decentralized approach part of ICARDA’s DNA from
+                                the start. That same year,
+                                ICARDA launched the <a
+                                    href="https://icarda.org/media/news/monumental-food-security-project-concludes-after-12-years"
+                                    target="_blank" rel="noopener noreferrer">Enhancing Food Security in Arab
+                                    Countries</a> project. Over 12 years,
+                                across 10 countries, and with the
+                                support of five donors, it evolved into a flagship model of regional cooperation,
+                                enhancing wheat-based food security
+                                through shared science, capacity building, and policy support. The project ultimately
+                                won the <a href="https://almaraiprize.almarai.com/" target="_blank"
+                                    rel="noopener noreferrer">Almarai Prize</a> in 2025. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2015-16</span>
+                            <img class="img-full" src="./assets/images/decades/2010s/3.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">A First from Svalbard 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">In a historic first, following
+                                the loss of access to its Tel Hadya genebank during the Syrian conflict, ICARDA withdrew
+                                seeds from the <a href="https://www.seedvault.no/" target="_blank"
+                                    rel="noopener noreferrer">Svaldbard Global Seed Vault</a>. ICARDA’s collection, one
+                                of the world’s most
+                                diverse dryland seed banks, was
+                                then safely <a
+                                    href="https://icarda.org/media/press-release/icarda-deposits-vital-seeds-svalbard-vault-securing-food-generations-come#:~:text=In%25202015%252C%2520ICARDA%2520was%2520the%2520first%2520organization%2520in,be%2520regenerated%2520or%2520distributed%2520to%2520breeders%2520and%2520researchers."
+                                    target="_blank" rel="noopener noreferrer">regenerated and secured</a> in the newly
+                                established
+                                genebanks in Lebanon and
+                                Morocco, with a total of 46,000
+                                seed accessions in trust. ICARDA later redeposited 15,420 seed samples to the Svalbard
+                                Global Seed Vault, securing them
+                                once again for long-term global conservation. Beyond conservation, ICARDA expanded its
+                                impact by introducing
+                                heat-tolerant wheat across hot African countries, including Sudan, Nigeria, Senegal, and
+                                Mauritania, where wheat was
+                                previously considered a minor crop. In Ethiopia, ICARDA’s improved legume varieties
+                                turned around the country’s
+                                declining trend in food legume production, where the higher yields encouraged farmers to
+                                plant more for domestic
+                                consumption as well as exports to Sub-Saharan Africa and the Middle East.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2017</span>
+                            <img class="img-full" src="./assets/images/decades/2010s/4.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Planning for a Warmer Future 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">A new <a
+                                    href="https://icarda.org/publications/11367/icarda-strategic-plan-2017-2026"
+                                    target="_blank" rel="noopener noreferrer">ten-year strategy</a> placed
+                                climate resilience, sustainable food systems, and regional policy engagement at the core
+                                of ICARDA’s research. The plan aimed to meet growing environmental pressures with
+                                applied, regionally relevant science.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2018</span>
+                            <img class="img-full" src="./assets/images/decades/2010s/5.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Integrating Crop‑Livestock with
+                                Conservation Agriculture 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">In addition to returning its
+                                seed samples to the Svalbard Global Seed Vault for long-term conservation, Guided by
+                                decades of crop-livestock systems research, ICARDA launched an <a
+                                    href="https://www.ifad.org/en/" target="_blank"
+                                    rel="noopener noreferrer">IFAD</a>-funded <a
+                                    href="https://icarda.org/media/news/smarter-conservation-agriculture-crop-and-livestock-integration"
+                                    target="_blank" rel="noopener noreferrer">regional initiative</a>
+                                to combine conservation
+                                agriculture with livestock production. Piloted in Tunisia and Algeria and expanded
+                                through <a href="https://www.cimmyt.org/" target="_blank"
+                                    rel="noopener noreferrer">CIMMYT</a> to Bolivia and Mexico,
+                                the project helped around 2,200 farmers, 40% of whom were women, adopt no‑till, cover
+                                cropping, and forage systems. It
+                                boosted grain yields, cut costs, reduced water usage, and paved the way for a new path
+                                in livestock-crop integration in
+                                drylands. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup" data-popup-id="timeline-2020s" style="display: none;">
+            <div class="popup__content">
+                <div class="popup__content__header">
+                    <h2 class="heading-2 popup__content__title">Resilience Through Decentralization</h2>
+                    <button class="popup__content__close">
+                        <i class="icon" data-lucide-size="20" data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="popup__content__body">
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2020</span>
+                            <img class="img-full" src="./assets/images/decades/2020s/1.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Planning for a Warmer Future 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">Amid the COVID-19 pandemic,
+                                ICARDA <a
+                                    href="https://icarda.org/publications/29443/icarda-annual-report-2020#:~:text=We%2520have%2520gathered%2520our%25202020%2520achievements%2520and%2520impact,to%2520the%2520vital%2520support%2520of%2520donors%2520and%2520partners."
+                                    target="_blank" rel="noopener noreferrer">sustained operations</a> in over 60
+                                countries. From digital agronomy to smallholder
+                                seed
+                                systems, research and extension are being adapted for remote delivery, reinforcing the
+                                institution’s decentralized
+                                approach.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2022</span>
+                            <img class="img-full" src="./assets/images/decades/2020s/2.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Infrastructure and Innovation 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA officially inaugurated a
+                                state-of-the-art <a
+                                    href="https://icarda.org/media/news/seeds-life-icarda-morocco-genebank-inaugurated"
+                                    target="_blank" rel="noopener noreferrer">genebank in Morocco.</a> ICARDA's genbanks
+                                in Lebanon and Morocco, embedded
+                                within the overall <a href="https://genebanks.cgiar.org/" target="_blank"
+                                    rel="noopener noreferrer">CGIAR genebank system</a>, work in tandem to collect
+                                essential plant
+                                specimens from the region and
+                                beyond. Both genebanks work with crop breeders to evaluate and disseminate adapted crop
+                                varieties to farmers, global
+                                researchers, and breeding programs. ICARDA's seeds are International Public Goods
+                                accessible to crop breeders and
+                                researchers worldwide. To date, around 85,000 accessions are available to global
+                                breeding programs and researchers, with
+                                around 20,000 seed samples distributed annually. Also in 2022, ICARDA <a
+                                    href="https://icarda.org/media/news/green-light-desert-farming-platform"
+                                    target="_blank" rel="noopener noreferrer">launched its Integrated Desert Farming
+                                    Innovation
+                                    Platform.</a>
+                                The program is designed to test the limits of viable agriculture in desert
+                                areas by transforming them into
+                                self-sustaining ecosystems through the combination of traditional oasis farming wisdom
+                                with modern innovations in water,
+                                energy, crop, and livestock management. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2023</span>
+                            <img class="img-full" src="./assets/images/decades/2020s/3.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">A New Strategic Horizon 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">A <a
+                                    href="https://icarda.org/about-us/strategic-plan" target="_blank"
+                                    rel="noopener noreferrer">2030 Research and Innovation Strategy</a>
+                                was launched, focused on climate science, data-driven breeding, and inclusion.
+                                The plan positioned ICARDA to respond more quickly to environmental pressures and the
+                                shifting agricultural priorities
+                                in drylands.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item right">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2024</span>
+                            <img class="img-full" src="./assets/images/decades/2020s/4.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">A Global Strategy for Dryland
+                                Resilience 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">ICARDA and <a
+                                    href="https://www.icrisat.org/" target="_blank"
+                                    rel="noopener noreferrer">ICRISAT</a>, together
+                                with 12 CGIAR sister centers, launched the <a
+                                    href="https://www.cgiar.org/global-strategy-resilient-drylands/" target="_blank"
+                                    rel="noopener noreferrer">Global Strategy for Resilient Drylands</a>. The
+                                initiative aims to support over 2.7 billion people living in dry regions by scaling
+                                climate-smart crops, rangeland
+                                management, and sustainable water use. Rooted in decades of research, the strategy
+                                reflects a shift toward coordinated,
+                                system-level responses to climate and resource pressures. The year also marked new
+                                scientific frontiers as ICARDA
+                                researchers applied <a
+                                    href="https://icarda.org/media/blog/unlocking-potential-plant-genetic-resources-genome-wide-prediction#:~:text=In%2520a%2520new%2520journal%2520article%2520to%2520which%2520ICARDA,genetic%2520diversity%2520and%2520phenotypic%2520wealth%2520in%2520genebanks%2520collections."
+                                    target="_blank" rel="noopener noreferrer">AI for genome-wide prediction</a>,
+                                unlocking the vast genetic diversity
+                                held in genebanks and
+                                accelerating the breeding of crops tailored to withstand heat, drought, and disease.
+                                Meanwhile, ICARDA’s pioneering
+                                <a href="https://www.youtube.com/watch?v=RrBGilP7sqI" target="_blank"
+                                    rel="noopener noreferrer">Community-Based Breeding Program</a>, first introduced in
+                                Ethiopia in 2009, expanded to <a
+                                    href="https://icarda.org/media/news/malis-first-ever-community-based-breeding-program-launched"
+                                    target="_blank" rel="noopener noreferrer">Mali</a>
+                                in collaboration with <a href="https://www.ilri.org/" target="_blank"
+                                    rel="noopener noreferrer">ILRI</a>,
+                                linking genetic improvement to enhanced animal health and improved feeding practices.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="popup__content__body__item left">
+                        <div class="popup__content__body__item__image">
+                            <span class="popup__content__body__item__image__year">2025</span>
+                            <img class="img-full" src="./assets/images/decades/2020s/5.png" alt="Popup Image">
+                            <span class="popup__content__body__item__image__cation">Caption describing the image will
+                                appear here.</span>
+                        </div>
+                        <div class="popup__content__body__item__content">
+                            <h3 class="popup__content__body__item__content__title">Responding to Emerging Threats,
+                                Accelerating Solutions 
+                            </h3>
+                            <p class="popup__content__body__item__content__description">In partnership with the
+                                International Affairs Office at the United Arab Emirates (UAE) Presidential Court and
+                                the Gates
+                                Foundation, ICARDA initiated a large-scale regional project targeting the red palm
+                                weevil, a destructive pest that
+                                threatens date palm cultivation in the Arab region. The <a
+                                    href="https://icarda.org/research/featured/protecting-palms-livelihoods-and-environment"
+                                    target="_blank" rel="noopener noreferrer">Consortium for Red Palm Weevil Control
+                                    (C4RPWC)</a> reflects a
+                                growing emphasis on biosecurity and rapid-response research. This year also saw the
+                                <a href="https://icarda.org/media/news/icarda-inaugurates-african-breeding-accelerator"
+                                    target="_blank" rel="noopener noreferrer">inauguration of the African Breeding
+                                    Accelerator</a>
+                                in Morocco, an advanced research and training hub equipped with
+                                cutting-edge
+                                tools to fast-track the
+                                development of climate-resilient wheat and barley. Designed to serve the entire
+                                continent, ABA will empower African
+                                scientists with next-generation breeding technologies, ensuring faster delivery of
+                                improved varieties to farmers facing
+                                intensifying climate pressures.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -708,8 +1558,13 @@
     <script src="./assets/js/fslightbox.js"></script>
     <script src="./assets/js/slider.js"></script>
     <script src="./assets/js/gallery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./assets/js/text-reveal.js"></script>
+    <script src="./assets/js/timeline-navigation-animate.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/timeline-navigation.js"></script>
+    <script src="./assets/js/social-share.js"></script>
+    <script src="./assets/js/popup.js"></script>
 </body>
 
 </html>

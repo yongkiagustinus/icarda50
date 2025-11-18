@@ -1,0 +1,77 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.timeline__navigation {
+    position: fixed;
+    left: 50px;
+    top: 60px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+
+    @include tablet {
+        left: 20px;
+    }
+
+    @include mobile {
+        display: none;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background: rgb(213 213 213 / 66%);
+        z-index: -1;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+
+        &__title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 100%;
+            background: $white;
+            color: $black;
+            font-family: Inter;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        &.active {
+            .timeline__navigation__item__title {
+                background: $yellow;
+            }
+        }
+
+        &__content {
+            color: $yellow;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%;
+            opacity: 0;
+        }
+
+        &.active {
+            .timeline__navigation__item__content {
+                opacity: 1;
+            }
+        }
+    }
+}
