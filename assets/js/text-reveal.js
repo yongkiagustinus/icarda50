@@ -19,9 +19,7 @@
       ".heading-1, .heading-2, .timeline__year, .body-text, .timeline__content, .way__forward__content, .quick__links__item"
     );
 
-    // Wait for layout to be complete before calculating positions
     setTimeout(() => {
-      // Convert NodeList to Array and sort by position in document (top to bottom)
       const elementsArray = Array.from(textElements).sort((a, b) => {
         const rectA = a.getBoundingClientRect();
         const rectB = b.getBoundingClientRect();
@@ -32,10 +30,8 @@
         return posA - posB;
       });
 
-      // Track which elements have started animating
       let lastAnimatedIndex = -1;
 
-      // Animate each element in order
       elementsArray.forEach((element, index) => {
         try {
           if (element.dataset.animated === "true") {
@@ -58,13 +54,11 @@
             opacity: 0,
           });
 
-          // Create timeline with ScrollTrigger
           ScrollTrigger.create({
             trigger: element,
             start: "top 85%",
             end: "bottom 20%",
             onEnter: () => {
-              // Only animate if previous elements have started (or this is the first)
               const shouldAnimate =
                 index === 0 || lastAnimatedIndex >= index - 1;
 
@@ -79,7 +73,6 @@
                   stagger: 0.1,
                 });
               } else {
-                // Wait for previous element, check periodically
                 const checkInterval = setInterval(() => {
                   if (lastAnimatedIndex >= index - 1) {
                     clearInterval(checkInterval);

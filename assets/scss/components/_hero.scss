@@ -45,6 +45,11 @@
         position: relative;
         text-align: center;
         z-index: 2;
+
+        @include tablet {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
     }
 
     video {

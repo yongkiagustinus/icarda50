@@ -7,31 +7,36 @@
 @use "components/hero";
 @use "components/timeline";
 @use "components/timeline-card";
+@use "components/timeline-navigation";
 @use "components/kpi";
 @use "components/way-forward";
 @use "components/gallery";
 @use "components/links";
+@use "components/social-share";
+@use "components/popup";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
-// Text Reveal Animation Styles
-.split-line {
-    display: inline-block;
-    overflow: hidden;
-}
-
-// Add overflow hidden to animated text elements
-.heading-1,
-.heading-2,
-.timeline__year,
-.timeline__content,
-.way__forward__content p,
-.quick__links__item {
-    overflow: hidden;
-}
 
 * {
     margin: 0;
     padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+}
+
+.popup__content__body::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+.popup__content__body::-webkit-scrollbar-thumb {
+    background: #ff0000;
 }
 
 .container {
@@ -84,4 +89,20 @@
     background-image: url(../images/backgrounds/bg-8.jpg);
     background-size: cover;
     background-position: top center;
+}
+
+// Text Reveal Animation Styles
+.split-line {
+    display: inline-block;
+    overflow: hidden;
+}
+
+// Add overflow hidden to animated text elements
+.heading-1,
+.heading-2,
+.timeline__year,
+.timeline__content,
+.way__forward__content p,
+.quick__links__item {
+    overflow: hidden;
 }
