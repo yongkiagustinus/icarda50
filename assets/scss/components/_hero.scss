@@ -101,6 +101,10 @@
         position: relative;
         overflow: hidden;
 
+        @include mobile {
+            height: 50px;
+        }
+
         &::after {
             content: "";
             position: absolute;

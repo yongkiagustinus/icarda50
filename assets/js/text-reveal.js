@@ -68,7 +68,7 @@
                 gsap.to(split.lines, {
                   y: 0,
                   opacity: 1,
-                  duration: 0.7,
+                  duration: 0.5,
                   ease: "Power2.easeOut",
                   stagger: 0.1,
                 });
@@ -81,7 +81,7 @@
                     gsap.to(split.lines, {
                       y: 0,
                       opacity: 1,
-                      duration: 0.7,
+                      duration: 0.5,
                       ease: "Power2.easeOut",
                       stagger: 0.1,
                     });

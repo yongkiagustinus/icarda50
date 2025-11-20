@@ -137,6 +137,23 @@
         }
     }
 
+    .decade__title {
+        text-align: center;
+        font-size: 46px;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 100px;
+
+        @include tablet {
+            font-size: 30px;
+            margin-bottom: 80px;
+        }
+        @include mobile {
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+    }
+
     .swiper {
         width: 100%;
         height: auto;

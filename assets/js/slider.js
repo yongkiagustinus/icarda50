@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     direction: "horizontal",
     slidesPerView: 1,
     autoHeight: true,
+    speed: 2000,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
 
     navigation: {
       nextEl: ".swiper-button-next",

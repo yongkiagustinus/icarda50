@@ -98,6 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
       link.setAttribute("data-fslightbox", "gallery");
       link.setAttribute("data-gallery-link", "");
       link.setAttribute("data-type", "image");
+      const captionText =
+        captions[imageNumber - 1] || `Gallery Image ${imageNumber}`;
+      link.setAttribute("data-caption", captionText);
 
       const img = document.createElement("img");
       img.src = imageUrl;
@@ -156,6 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
             link.setAttribute("data-fslightbox", "gallery");
           }
           link.setAttribute("data-type", "image");
+          const captionText =
+            captions[imageNumber - 1] || `Gallery Image ${imageNumber}`;
+          link.setAttribute("data-caption", captionText);
         }
 
         img.onerror = function () {
@@ -211,6 +217,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (typeof refreshFsLightbox === "function") {
           setTimeout(() => {
             refreshFsLightbox();
+            if (typeof buildCaptionMap === "function") {
+              buildCaptionMap();
+            }
           }, 100);
         }
 
@@ -233,5 +242,406 @@ document.addEventListener("DOMContentLoaded", function () {
         refreshFsLightbox();
       }, 300);
     }
+
+    const imageCaptionMap = new Map();
+    const imageUrlToIndexMap = new Map();
+    const indexToCaptionMap = new Map();
+    let clickedLink = null;
+    let currentSlideIndex = -1;
+    let isUpdating = false;
+    let updateTimeout = null;
+
+    function buildCaptionMap() {
+      imageCaptionMap.clear();
+      imageUrlToIndexMap.clear();
+      indexToCaptionMap.clear();
+
+      const allLinks = document.querySelectorAll(
+        '[data-fslightbox="gallery"][data-gallery-link]'
+      );
+      allLinks.forEach((link, index) => {
+        const imageUrl = link.getAttribute("href");
+        const caption =
+          link.getAttribute("data-caption") ||
+          link.querySelector("img")?.alt ||
+          "";
+        if (imageUrl) {
+          imageCaptionMap.set(imageUrl, caption);
+          imageUrlToIndexMap.set(imageUrl, index);
+          indexToCaptionMap.set(index, caption);
+        }
+      });
+    }
+
+    function getOrCreateCaptionElement() {
+      let captionEl = document.getElementById("gallery-lightbox-caption");
+      if (!captionEl) {
+        captionEl = document.createElement("div");
+        captionEl.id = "gallery-lightbox-caption";
+        captionEl.className = "gallery-lightbox-caption";
+        document.body.appendChild(captionEl);
+      }
+      return captionEl;
+    }
+
+    function updateCaption() {
+      if (isUpdating) {
+        return;
+      }
+
+      if (updateTimeout) {
+        clearTimeout(updateTimeout);
+      }
+
+      updateTimeout = setTimeout(() => {
+        isUpdating = true;
+
+        try {
+          const lightboxContainer = document.querySelector(
+            ".fslightbox-container"
+          );
+
+          if (!lightboxContainer) {
+            const captionEl = document.getElementById(
+              "gallery-lightbox-caption"
+            );
+            if (captionEl) {
+              captionEl.style.opacity = "0";
+            }
+            isUpdating = false;
+            return;
+          }
+
+          const isVisible =
+            window.getComputedStyle(lightboxContainer).display !== "none";
+          if (!isVisible) {
+            const captionEl = document.getElementById(
+              "gallery-lightbox-caption"
+            );
+            if (captionEl) {
+              captionEl.style.opacity = "0";
+            }
+            isUpdating = false;
+            return;
+          }
+
+          const captionEl = getOrCreateCaptionElement();
+
+          let currentImg = null;
+          let imageUrl = null;
+
+          const sources =
+            lightboxContainer.querySelectorAll(".fslightbox-source");
+          for (let source of sources) {
+            const hasOpacity0 = source.classList.contains(
+              "fslightbox-opacity-0"
+            );
+            if (!hasOpacity0) {
+              const img = source.querySelector("img");
+              if (img && img.src) {
+                const rect = img.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0) {
+                  currentImg = img;
+                  imageUrl = img.src;
+                  break;
+                }
+              }
+            }
+          }
+
+          if (!currentImg) {
+            const allImgs = lightboxContainer.querySelectorAll("img");
+            for (let img of allImgs) {
+              if (img.src) {
+                const rect = img.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0) {
+                  currentImg = img;
+                  imageUrl = img.src;
+                  break;
+                }
+              }
+            }
+          }
+
+          if (!currentImg && clickedLink) {
+            const clickedUrl = clickedLink.getAttribute("href");
+            if (clickedUrl) {
+              imageUrl = clickedUrl;
+            }
+          }
+
+          let caption = "";
+
+          if (imageUrl) {
+            const normalizedUrl = imageUrl.split("?")[0].split("#")[0];
+
+            for (let [url, cap] of imageCaptionMap.entries()) {
+              const normalizedMapUrl = url.split("?")[0].split("#")[0];
+              if (
+                normalizedMapUrl === normalizedUrl ||
+                imageUrl.includes(url) ||
+                url.includes(normalizedUrl) ||
+                normalizedUrl.includes(normalizedMapUrl) ||
+                normalizedMapUrl.includes(normalizedUrl)
+              ) {
+                caption = cap;
+                const matchedIndex = imageUrlToIndexMap.get(url);
+                if (matchedIndex !== undefined) {
+                  currentSlideIndex = matchedIndex;
+                }
+                break;
+              }
+            }
+          }
+
+          if (
+            !caption &&
+            currentSlideIndex >= 0 &&
+            indexToCaptionMap.has(currentSlideIndex)
+          ) {
+            caption = indexToCaptionMap.get(currentSlideIndex);
+          }
+
+          if (!caption && clickedLink) {
+            caption =
+              clickedLink.getAttribute("data-caption") ||
+              clickedLink.querySelector("img")?.alt ||
+              "";
+          }
+
+          if (!caption && currentImg) {
+            caption = currentImg.alt || "";
+          }
+
+          if (caption) {
+            captionEl.textContent = caption;
+            captionEl.style.opacity = "1";
+          } else {
+            captionEl.style.opacity = "0";
+          }
+        } catch (error) {
+          console.error("Error updating caption:", error);
+        } finally {
+          isUpdating = false;
+        }
+      }, 100);
+    }
+
+    document.addEventListener(
+      "click",
+      (e) => {
+        const link = e.target.closest(
+          '[data-fslightbox="gallery"][data-gallery-link]'
+        );
+        if (link) {
+          clickedLink = link;
+
+          const allLinks = document.querySelectorAll(
+            '[data-fslightbox="gallery"][data-gallery-link]'
+          );
+          allLinks.forEach((l, index) => {
+            if (l === link) {
+              currentSlideIndex = index;
+            }
+          });
+
+          const captionEl = getOrCreateCaptionElement();
+          const caption =
+            link.getAttribute("data-caption") ||
+            link.querySelector("img")?.alt ||
+            "";
+          if (caption) {
+            captionEl.textContent = caption;
+            captionEl.style.opacity = "1";
+          }
+
+          setTimeout(updateCaption, 300);
+          setTimeout(updateCaption, 600);
+        }
+      },
+      true
+    );
+
+    function initCaptionSystem() {
+      buildCaptionMap();
+
+      getOrCreateCaptionElement();
+
+      let lightboxContainer = null;
+      const observer = new MutationObserver((mutations) => {
+        const currentContainer = document.querySelector(
+          ".fslightbox-container"
+        );
+        if (currentContainer !== lightboxContainer) {
+          lightboxContainer = currentContainer;
+          if (lightboxContainer) {
+            updateCaption();
+          } else {
+            const captionEl = document.getElementById(
+              "gallery-lightbox-caption"
+            );
+            if (captionEl) {
+              captionEl.style.opacity = "0";
+            }
+          }
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: false,
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          const allLinks = document.querySelectorAll(
+            '[data-fslightbox="gallery"][data-gallery-link]'
+          );
+          if (allLinks.length > 0) {
+            if (currentSlideIndex <= 0) {
+              currentSlideIndex = allLinks.length - 1;
+            } else {
+              currentSlideIndex--;
+            }
+          }
+          setTimeout(updateCaption, 200);
+        } else if (e.key === "ArrowRight") {
+          const allLinks = document.querySelectorAll(
+            '[data-fslightbox="gallery"][data-gallery-link]'
+          );
+          if (allLinks.length > 0) {
+            if (currentSlideIndex >= allLinks.length - 1) {
+              currentSlideIndex = 0;
+            } else {
+              currentSlideIndex++;
+            }
+          }
+          setTimeout(updateCaption, 200);
+        } else if (e.key === "Escape") {
+          setTimeout(() => {
+            const container = document.querySelector(".fslightbox-container");
+            if (
+              !container ||
+              window.getComputedStyle(container).display === "none"
+            ) {
+              const captionEl = document.getElementById(
+                "gallery-lightbox-caption"
+              );
+              if (captionEl) {
+                captionEl.style.opacity = "0";
+              }
+            }
+          }, 100);
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        const prevBtn = e.target.closest(
+          ".fslightbox-slide-btn-container-previous"
+        );
+        const nextBtn = e.target.closest(
+          ".fslightbox-slide-btn-container-next"
+        );
+        const closeBtn = e.target.closest(".fslightbox-toolbar-button");
+
+        if (prevBtn) {
+          const allLinks = document.querySelectorAll(
+            '[data-fslightbox="gallery"][data-gallery-link]'
+          );
+          if (allLinks.length > 0) {
+            if (currentSlideIndex <= 0) {
+              currentSlideIndex = allLinks.length - 1;
+            } else {
+              currentSlideIndex--;
+            }
+          }
+          setTimeout(updateCaption, 250);
+        } else if (nextBtn) {
+          const allLinks = document.querySelectorAll(
+            '[data-fslightbox="gallery"][data-gallery-link]'
+          );
+          if (allLinks.length > 0) {
+            if (currentSlideIndex >= allLinks.length - 1) {
+              currentSlideIndex = 0;
+            } else {
+              currentSlideIndex++;
+            }
+          }
+          setTimeout(updateCaption, 250);
+        } else if (closeBtn) {
+          setTimeout(() => {
+            const container = document.querySelector(".fslightbox-container");
+            if (
+              !container ||
+              window.getComputedStyle(container).display === "none"
+            ) {
+              const captionEl = document.getElementById(
+                "gallery-lightbox-caption"
+              );
+              if (captionEl) {
+                captionEl.style.opacity = "0";
+              }
+            }
+          }, 100);
+        }
+      });
+
+      let touchStartX = 0;
+      document.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+      document.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          setTimeout(updateCaption, 200);
+        }
+      });
+
+      let captionInterval = null;
+      const checkLightbox = () => {
+        const container = document.querySelector(".fslightbox-container");
+        const isOpen =
+          container && window.getComputedStyle(container).display !== "none";
+
+        if (isOpen) {
+          if (!captionInterval) {
+            captionInterval = setInterval(() => {
+              const container = document.querySelector(".fslightbox-container");
+              const isStillOpen =
+                container &&
+                window.getComputedStyle(container).display !== "none";
+              if (isStillOpen) {
+                updateCaption();
+              } else {
+                const captionEl = document.getElementById(
+                  "gallery-lightbox-caption"
+                );
+                if (captionEl) {
+                  captionEl.style.opacity = "0";
+                }
+                clearInterval(captionInterval);
+                captionInterval = null;
+              }
+            }, 1000);
+          }
+        } else {
+          const captionEl = document.getElementById("gallery-lightbox-caption");
+          if (captionEl) {
+            captionEl.style.opacity = "0";
+          }
+          if (captionInterval) {
+            clearInterval(captionInterval);
+            captionInterval = null;
+          }
+        }
+      };
+
+      setInterval(checkLightbox, 500);
+
+      setTimeout(updateCaption, 500);
+    }
+
+    setTimeout(initCaptionSystem, 500);
   }
 });

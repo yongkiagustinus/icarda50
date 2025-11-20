@@ -10,8 +10,15 @@
     flex-direction: column;
     gap: 10px;
 
+    @include tablet {
+        top: 70%;
+        right: 50%;
+        transform: translateX(50%);
+        align-items: center;
+    }
+
     @include mobile {
-        bottom: 230px;
+        top: 65%;
         right: 50%;
         transform: translateX(50%);
         align-items: center;
