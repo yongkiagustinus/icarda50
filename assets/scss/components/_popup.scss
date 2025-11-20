@@ -117,7 +117,7 @@
                 line-height: 100%; /* 66px */
 
                 @include mobile {
-                    font-size: 36px;
+                    font-size: 24px;
                 }
             }
 
@@ -260,6 +260,10 @@
                         font-weight: 600;
                         line-height: 130%;
                         margin-bottom: 8px;
+
+                        @include mobile {
+                            font-size: 20px;
+                        }
                     }
                     &__description {
                         font-size: 18px;

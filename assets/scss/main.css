@@ -5376,7 +5376,7 @@ body {
 }
 @media (max-width: 767px) {
   .popup__content__body__office__title {
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 .popup__content__body__item {
@@ -5518,6 +5518,11 @@ body {
   font-weight: 600;
   line-height: 130%;
   margin-bottom: 8px;
+}
+@media (max-width: 767px) {
+  .popup__content__body .office__location__card__title {
+    font-size: 20px;
+  }
 }
 .popup__content__body .office__location__card__description {
   font-size: 18px;
