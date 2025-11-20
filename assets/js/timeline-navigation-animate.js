@@ -4,10 +4,6 @@
   }
 
   function initTimelineNavigationAnimate() {
-    if (isMobileDevice()) {
-      return;
-    }
-
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
       console.warn("GSAP or ScrollTrigger not loaded");
       return;
@@ -30,33 +26,61 @@
         return;
       }
 
-      gsap.set(timelineNavigation, {
-        x: -200,
-        opacity: 0,
-      });
+      if (isMobileDevice()) {
+        gsap.set(timelineNavigation, {
+          y: 100,
+          opacity: 0,
+        });
+      } else {
+        gsap.set(timelineNavigation, {
+          x: -200,
+          opacity: 0,
+        });
+      }
 
       ScrollTrigger.create({
         trigger: timelineSection1,
         start: "top 80%",
         end: "bottom 20%",
         onEnter: () => {
-          const currentX = gsap.getProperty(timelineNavigation, "x");
-          if (currentX !== 0) {
+          if (isMobileDevice()) {
+            const currentY = gsap.getProperty(timelineNavigation, "y");
+            if (currentY !== 0) {
+              gsap.to(timelineNavigation, {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "Power3.easeOut",
+              });
+            }
+          } else {
+            const currentX = gsap.getProperty(timelineNavigation, "x");
+            if (currentX !== 0) {
+              gsap.to(timelineNavigation, {
+                x: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "Power3.easeOut",
+              });
+            }
+          }
+        },
+        onLeaveBack: () => {
+          if (isMobileDevice()) {
             gsap.to(timelineNavigation, {
-              x: 0,
-              opacity: 1,
+              y: 100,
+              opacity: 0,
+              duration: 1.2,
+              ease: "Power3.easeOut",
+            });
+          } else {
+            gsap.to(timelineNavigation, {
+              x: -200,
+              opacity: 0,
               duration: 1.2,
               ease: "Power3.easeOut",
             });
           }
-        },
-        onLeaveBack: () => {
-          gsap.to(timelineNavigation, {
-            x: -200,
-            opacity: 0,
-            duration: 1.2,
-            ease: "Power3.easeOut",
-          });
         },
       });
 
@@ -66,22 +90,43 @@
           start: "bottom bottom",
           end: "bottom top",
           onEnter: () => {
-            gsap.to(timelineNavigation, {
-              x: -200,
-              opacity: 0,
-              duration: 1.2,
-              ease: "Power3.easeOut",
-            });
-          },
-          onLeaveBack: () => {
-            const currentX = gsap.getProperty(timelineNavigation, "x");
-            if (currentX !== 0) {
+            if (isMobileDevice()) {
               gsap.to(timelineNavigation, {
-                x: 0,
-                opacity: 1,
+                y: 100,
+                opacity: 0,
                 duration: 1.2,
                 ease: "Power3.easeOut",
               });
+            } else {
+              gsap.to(timelineNavigation, {
+                x: -200,
+                opacity: 0,
+                duration: 1.2,
+                ease: "Power3.easeOut",
+              });
+            }
+          },
+          onLeaveBack: () => {
+            if (isMobileDevice()) {
+              const currentY = gsap.getProperty(timelineNavigation, "y");
+              if (currentY !== 0) {
+                gsap.to(timelineNavigation, {
+                  y: 0,
+                  opacity: 1,
+                  duration: 1.2,
+                  ease: "Power3.easeOut",
+                });
+              }
+            } else {
+              const currentX = gsap.getProperty(timelineNavigation, "x");
+              if (currentX !== 0) {
+                gsap.to(timelineNavigation, {
+                  x: 0,
+                  opacity: 1,
+                  duration: 1.2,
+                  ease: "Power3.easeOut",
+                });
+              }
             }
           },
         });
@@ -104,7 +149,7 @@
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      if (!isMobileDevice() && typeof ScrollTrigger !== "undefined") {
+      if (typeof ScrollTrigger !== "undefined") {
         ScrollTrigger.refresh();
       }
     }, 250);

@@ -22,19 +22,18 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
+    width: 0;
+    background: transparent;
 }
-/* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #ff0000;
 }
 
 .popup__content__body::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
+    width: 0;
+    background: transparent;
 }
-/* Optional: show position indicator in red */
+
 .popup__content__body::-webkit-scrollbar-thumb {
     background: #ff0000;
 }
@@ -91,13 +90,11 @@
     background-position: top center;
 }
 
-// Text Reveal Animation Styles
 .split-line {
     display: inline-block;
     overflow: hidden;
 }
 
-// Add overflow hidden to animated text elements
 .heading-1,
 .heading-2,
 .timeline__year,
