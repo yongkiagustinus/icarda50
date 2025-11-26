@@ -5351,8 +5351,8 @@ body {
   padding-right: 10px;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  margin-bottom: 80px;
   touch-action: pan-y;
-  padding-bottom: 100px;
 }
 .popup__content__body::-webkit-scrollbar {
   width: 8px;
@@ -5541,22 +5541,33 @@ body {
   padding: 0;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+/* Firefox */
+*,
+.popup__content__body {
+  scrollbar-width: auto;
+  scrollbar-color: #e6782a #f5f5f5;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #ff0000;
-}
-
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar,
 .popup__content__body::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+  width: 10px;
 }
 
+::-webkit-scrollbar-track,
+.popup__content__body::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb,
 .popup__content__body::-webkit-scrollbar-thumb {
-  background: #ff0000;
+  background: #e6782a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+.popup__content__body::-webkit-scrollbar-thumb:hover {
+  background: #af4e10;
 }
 
 .container {
@@ -5640,6 +5651,49 @@ body {
 .way__forward__content p,
 .quick__links__item {
   overflow: hidden;
+}
+
+.back__to__top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0;
+  pointer-events: none;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .back__to__top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .back__to__top {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+.back__to__top .btn__top {
+  color: #ffffff;
+  background-color: #e6782a;
+  border-radius: 50%;
+  border: none;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  z-index: 2;
+}
+@media (max-width: 767px) {
+  .back__to__top .btn__top {
+    width: 40px;
+    height: 40px;
+  }
+}
+.back__to__top .btn__top svg {
+  stroke: #ffffff;
 }
 
 /*# sourceMappingURL=main.css.map */
