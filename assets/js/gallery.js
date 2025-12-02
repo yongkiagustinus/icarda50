@@ -192,6 +192,81 @@ document.addEventListener("DOMContentLoaded", function () {
       initializeGalleryItem(item, index);
     });
 
+    let imagesAutoLoaded = false;
+
+    function loadAllRemainingImages() {
+      if (currentIndex >= shuffledImageNumbers.length || imagesAutoLoaded) {
+        return;
+      }
+
+      imagesAutoLoaded = true;
+
+      const fragment = document.createDocumentFragment();
+      const remainingCount = shuffledImageNumbers.length - currentIndex;
+
+      for (let i = 0; i < remainingCount; i++) {
+        const imageNumber = shuffledImageNumbers[currentIndex];
+        const galleryItem = createGalleryItem(imageNumber, false);
+        fragment.appendChild(galleryItem);
+        currentIndex++;
+      }
+
+      galleryGrid.appendChild(fragment);
+
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      }
+
+      const loadMoreButton = document.querySelector(".gallery .btn");
+      if (loadMoreButton) {
+        loadMoreButton.style.display = "none";
+      }
+
+      setTimeout(() => {
+        const lightboxContainer = document.querySelector(
+          ".fslightbox-container"
+        );
+        const isLightboxOpen =
+          lightboxContainer &&
+          window.getComputedStyle(lightboxContainer).display !== "none";
+
+        let currentSlide = currentSlideIndex;
+
+        if (isLightboxOpen && currentSlide >= 0) {
+          if (typeof window.fsLightboxInstances !== "undefined") {
+            const galleryInstance = window.fsLightboxInstances["gallery"];
+            if (galleryInstance && galleryInstance.close) {
+              galleryInstance.close();
+            }
+          }
+        }
+
+        if (typeof refreshFsLightbox === "function") {
+          refreshFsLightbox();
+        }
+
+        if (isLightboxOpen && currentSlide >= 0) {
+          setTimeout(() => {
+            if (typeof window.fsLightboxInstances !== "undefined") {
+              const galleryInstance = window.fsLightboxInstances["gallery"];
+              if (galleryInstance && galleryInstance.open) {
+                galleryInstance.open(currentSlide);
+              }
+            }
+            if (typeof buildCaptionMap === "function") {
+              buildCaptionMap();
+            }
+          }, 100);
+        } else {
+          if (typeof buildCaptionMap === "function") {
+            setTimeout(() => {
+              buildCaptionMap();
+            }, 100);
+          }
+        }
+      }, 300);
+    }
+
     const loadMoreButton = document.querySelector(".gallery .btn");
 
     if (loadMoreButton) {
@@ -433,7 +508,106 @@ document.addEventListener("DOMContentLoaded", function () {
         const link = e.target.closest(
           '[data-fslightbox="gallery"][data-gallery-link]'
         );
-        if (link) {
+        if (link && !imagesAutoLoaded) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          clickedLink = link;
+
+          const clickedHref = link.getAttribute("href") || link.href;
+
+          const fragment = document.createDocumentFragment();
+          const remainingCount = shuffledImageNumbers.length - currentIndex;
+
+          for (let i = 0; i < remainingCount; i++) {
+            const imageNumber = shuffledImageNumbers[currentIndex];
+            const galleryItem = createGalleryItem(imageNumber, false);
+            fragment.appendChild(galleryItem);
+            currentIndex++;
+          }
+
+          galleryGrid.appendChild(fragment);
+          imagesAutoLoaded = true;
+
+          if (typeof lucide !== "undefined") {
+            lucide.createIcons();
+          }
+
+          const loadMoreButton = document.querySelector(".gallery .btn");
+          if (loadMoreButton) {
+            loadMoreButton.style.display = "none";
+          }
+
+          setTimeout(() => {
+            if (typeof refreshFsLightbox === "function") {
+              refreshFsLightbox();
+            }
+
+            setTimeout(() => {
+              const allLinks = document.querySelectorAll(
+                '[data-fslightbox="gallery"][data-gallery-link]'
+              );
+              let targetIndex = 0;
+
+              allLinks.forEach((l, index) => {
+                const lHref = l.getAttribute("href") || l.href;
+                if (lHref === clickedHref || l === link) {
+                  targetIndex = index;
+                  currentSlideIndex = index;
+                }
+              });
+
+              let lightboxOpened = false;
+
+              if (typeof window.fsLightboxInstances !== "undefined") {
+                const galleryInstance = window.fsLightboxInstances["gallery"];
+                if (galleryInstance && galleryInstance.open) {
+                  try {
+                    galleryInstance.open(targetIndex);
+                    lightboxOpened = true;
+                  } catch (err) {
+                    console.warn("Error opening lightbox:", err);
+                  }
+                }
+              }
+
+              if (
+                !lightboxOpened &&
+                typeof window.fsLightbox !== "undefined" &&
+                window.fsLightbox.open
+              ) {
+                try {
+                  window.fsLightbox.open(targetIndex);
+                  lightboxOpened = true;
+                } catch (err) {
+                  console.warn("Error opening lightbox:", err);
+                }
+              }
+
+              if (!lightboxOpened) {
+                setTimeout(() => {
+                  link.click();
+                }, 50);
+              }
+
+              const captionEl = getOrCreateCaptionElement();
+              const caption =
+                link.getAttribute("data-caption") ||
+                link.querySelector("img")?.alt ||
+                "";
+              if (caption) {
+                captionEl.textContent = caption;
+                captionEl.style.opacity = "1";
+              }
+
+              if (typeof buildCaptionMap === "function") {
+                setTimeout(() => {
+                  buildCaptionMap();
+                }, 100);
+              }
+            }, 200);
+          }, 100);
+        } else if (link) {
           clickedLink = link;
 
           const allLinks = document.querySelectorAll(
@@ -475,6 +649,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentContainer !== lightboxContainer) {
           lightboxContainer = currentContainer;
           if (lightboxContainer) {
+            const isVisible =
+              window.getComputedStyle(lightboxContainer).display !== "none";
+            if (isVisible) {
+              setTimeout(() => {
+                loadAllRemainingImages();
+              }, 200);
+            }
             updateCaption();
           } else {
             const captionEl = document.getElementById(
@@ -605,6 +786,8 @@ document.addEventListener("DOMContentLoaded", function () {
           container && window.getComputedStyle(container).display !== "none";
 
         if (isOpen) {
+          loadAllRemainingImages();
+
           if (!captionInterval) {
             captionInterval = setInterval(() => {
               const container = document.querySelector(".fslightbox-container");
@@ -643,5 +826,63 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setTimeout(initCaptionSystem, 500);
+
+    const galleryCards = document.querySelectorAll(".gallery__card");
+    galleryCards.forEach((card) => {
+      const link = card.querySelector("a");
+      if (!link) return;
+
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        link.style.setProperty("--tooltip-x", `${x}px`);
+        link.style.setProperty("--tooltip-y", `${y}px`);
+      });
+
+      card.addEventListener("mouseleave", () => {
+        link.style.removeProperty("--tooltip-x");
+        link.style.removeProperty("--tooltip-y");
+      });
+    });
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) {
+            const cards = node.matches?.(".gallery__card")
+              ? [node]
+              : node.querySelectorAll?.(".gallery__card") || [];
+
+            cards.forEach((card) => {
+              const link = card.querySelector("a");
+              if (!link) return;
+
+              card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                link.style.setProperty("--tooltip-x", `${x}px`);
+                link.style.setProperty("--tooltip-y", `${y}px`);
+              });
+
+              card.addEventListener("mouseleave", () => {
+                link.style.removeProperty("--tooltip-x");
+                link.style.removeProperty("--tooltip-y");
+              });
+            });
+          }
+        });
+      });
+    });
+
+    if (galleryGrid) {
+      observer.observe(galleryGrid, {
+        childList: true,
+        subtree: true,
+      });
+    }
   }
 });

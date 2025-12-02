@@ -55,6 +55,43 @@
             width: 100%;
             height: 100%;
             text-decoration: none;
+            position: relative;
+        }
+
+        // Tooltip
+        a::before {
+            content: "View full-screen";
+            position: absolute;
+            top: var(--tooltip-y, 15px);
+            left: var(--tooltip-x, 50%);
+            transform: translate(-50%, calc(-100% - 8px));
+            background-color: rgba(0, 0, 0, 0.9);
+            color: $white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease-out;
+            z-index: 10;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        a::after {
+            content: "";
+            position: absolute;
+            top: var(--tooltip-y, 15px);
+            left: var(--tooltip-x, 50%);
+            transform: translateX(-50%) translateY(-8px);
+            border: 4px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease-out;
+            z-index: 10;
         }
 
         &.second__card {
@@ -126,6 +163,7 @@
         &::after {
             content: "";
             position: absolute;
+            pointer-events: none;
             top: 0;
             left: 0;
             width: 100%;
@@ -137,6 +175,14 @@
 
         &:hover {
             &::after {
+                opacity: 1;
+            }
+
+            a::before {
+                opacity: 1;
+            }
+
+            a::after {
                 opacity: 1;
             }
 
