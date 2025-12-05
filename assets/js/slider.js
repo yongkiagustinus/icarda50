@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     speed: 2000,
     autoplay: {
       delay: 3500,
-      disableOnInteraction: false,
+      disableOnInteraction: true,
     },
 
     navigation: {
@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
       prevEl: ".swiper-button-prev",
     },
   });
+
+  // Pause autoplay on mouse enter, resume on mouse leave
+  const swiperElement = document.querySelector(".swiper");
+  if (swiperElement) {
+    swiperElement.addEventListener("mouseenter", function () {
+      swiper.autoplay.stop();
+    });
+
+    swiperElement.addEventListener("mouseleave", function () {
+      swiper.autoplay.start();
+    });
+  }
 
   const pageCurrent = document.querySelector(".swiper-page-current");
   const pageTotal = document.querySelector(".swiper-page-total");
